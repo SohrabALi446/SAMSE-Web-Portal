@@ -39,6 +39,84 @@
             }
         }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .matrix-bg {
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px);
+            background-size: 40px 40px; background-position: 0 0, 20px 20px;
+        }
+        .glow-box { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); }
+        .glow-box-hover:hover { box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3); }
+    </style>
+</head>
+<body class="bg-cyber-950 text-gray-100 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-950 matrix-bg min-h-screen flex flex-col">
+
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-cyber-cyan/20">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-blue bg-clip-text text-transparent">SAMSE</span>
+                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="index.html" class="text-cyber-cyan font-semibold">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Services</a>
+                <a href="products.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Product Suite</a>
+                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all font-mono text-xs uppercase tracking-wider">Contact</a>
+            </nav>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-gray-300 hover:text-cyber-cyan focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cyber-900 border-b border-cyber-800 px-4 pt-2 pb-4 space-y-3 font-medium">
+            <a href="index.html" class="block text-cyber-cyan py-1">Home</a>
+            <a href="about.html" class="block text-gray-300 hover:text-cyber-cyan py-1">About</a>
+            <a href="services.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Services</a>
+            <a href="products.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Product Suite</a>
+            <a href="contact.html" class="block text-cyber-cyan py-1 font-mono uppercase text-xs">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-32 overflow-hidden border-b border-cyber-800/80 flex-grow flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-mono mb-6">
+                <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-pulse"></span>
+                <span>SYSTEM STATUS: ALL SECURITY NODES OPERATIONAL</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6">
+                SAMSE: Software Administration <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-cyber-cyan via-blue-400 to-cyber-blue bg-clip-text text-transparent">and Modern Security Engineering</span>
+            </h1>
+            
+            <p class="max-w-3xl mx-auto text-lg text-gray-400 mb-10">
+                Architecting elite enterprise security posture, hardware-free software firewalls, autonomous threat hunting engines, and centralized management portals across modern digital infrastructures.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="products.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/25 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-box-archive"></i>
+                    <span>Explore Product Suite</span>
+                </a>
+                <a href="contact.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyber-900 border border-cyber-700 text-gray-200 hover:border-cyber-cyan transition-all font-mono text-sm flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-terminal text-cyber-cyan"></i>
+                    <span>Initialize Consultation</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <style>
         body {
