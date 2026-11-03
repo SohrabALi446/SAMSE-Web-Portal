@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAMSE - Software Administration & Modern Security Engineering</title>
+    <title>SAMSE NXTVPN Enterprise Console</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,118 +11,152 @@
             theme: {
                 extend: {
                     colors: {
-                        cyber: {
-                            950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
-                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', rose: '#f43f5e'
-                        }
-                    },
-                    fontFamily: { mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'] }
+                        darkbg: '#0f172a',
+                        cardbg: '#1e293b',
+                        accent: '#38bdf8',
+                        success: '#22c55e'
+                    }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .matrix-bg {
-            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px);
-            background-size: 40px 40px; background-position: 0 0, 20px 20px;
-        }
-        .glow-box { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); }
-        .glow-box-hover:hover { box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3); }
-    </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-950 matrix-bg min-h-screen flex flex-col">
+<body class="bg-darkbg text-slate-100 font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- Top Navigation -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-cyber-cyan/20">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <div>
-                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-blue bg-clip-text text-transparent">SAMSE</span>
-                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
-                </div>
-            </a>
-            
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="index.html" class="text-cyber-cyan font-semibold">Home</a>
-                <a href="about.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">About</a>
-                <a href="services.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Services</a>
-                <a href="products.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Product Suite</a>
-                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all font-mono text-xs uppercase tracking-wider">Contact</a>
-            </nav>
-
-            <div class="md:hidden flex items-center">
-                <button id="mobile-menu-btn" class="text-gray-300 hover:text-cyber-cyan focus:outline-none p-2">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
+    <!-- Top Navigation Bar -->
+    <header class="bg-cardbg border-b border-slate-800 px-6 py-4 flex justify-between items-center shadow-lg">
+        <div class="flex items-center space-x-3">
+            <div class="bg-accent/10 border border-accent/30 p-2 rounded-lg text-accent font-bold tracking-wider">
+                SAMSE // NXTVPN
             </div>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
+                ● AAA Core Active
+            </span>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cyber-900 border-b border-cyber-800 px-4 pt-2 pb-4 space-y-3 font-medium">
-            <a href="index.html" class="block text-cyber-cyan py-1">Home</a>
-            <a href="about.html" class="block text-gray-300 hover:text-cyber-cyan py-1">About</a>
-            <a href="services.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Services</a>
-            <a href="products.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Product Suite</a>
-            <a href="contact.html" class="block text-cyber-cyan py-1 font-mono uppercase text-xs">Contact</a>
+        <div class="flex items-center space-x-4 text-sm text-slate-400">
+            <span>Gateway: <strong class="text-slate-200">127.0.0.1:8443</strong></span>
+            <span class="border-l border-slate-700 pl-4">Admin: <strong class="text-slate-200">Root</strong></span>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative pt-24 pb-32 overflow-hidden border-b border-cyber-800/80 flex-grow flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-mono mb-6">
-                <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-pulse"></span>
-                <span>SYSTEM STATUS: ALL SECURITY NODES OPERATIONAL</span>
-            </div>
-            
-            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6">
-                SAMSE: Software Administration <br class="hidden sm:inline">
-                <span class="bg-gradient-to-r from-cyber-cyan via-blue-400 to-cyber-blue bg-clip-text text-transparent">and Modern Security Engineering</span>
-            </h1>
-            
-            <p class="max-w-3xl mx-auto text-lg text-gray-400 mb-10">
-                Architecting elite enterprise security posture, hardware-free software firewalls, autonomous threat hunting engines, and centralized management portals across modern digital infrastructures.
-            </p>
+    <!-- Main Dashboard Layout -->
+    <div class="flex flex-1">
+        
+        <!-- Sidebar -->
+        <aside class="w-64 bg-cardbg/50 border-r border-slate-800 p-6 hidden md:block">
+            <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Navigation</h3>
+            <nav class="space-y-2">
+                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg bg-accent/10 text-accent font-medium text-sm">Dashboard</a>
+                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 text-sm transition">Tunnels & Sessions</a>
+                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 text-sm transition">AAA User Management</a>
+                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 text-sm transition">Agent Builders</a>
+                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 text-sm transition">Audit Logs</a>
+            </nav>
+        </aside>
 
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="products.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/25 flex items-center justify-center space-x-2">
-                    <i class="fa-solid fa-box-archive"></i>
-                    <span>Explore Product Suite</span>
-                </a>
-                <a href="contact.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyber-900 border border-cyber-700 text-gray-200 hover:border-cyber-cyan transition-all font-mono text-sm flex items-center justify-center space-x-2">
-                    <i class="fa-solid fa-terminal text-cyber-cyan"></i>
-                    <span>Initialize Consultation</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-cyber-800 py-8 bg-cyber-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg bg-cyber-cyan flex items-center justify-center text-cyber-950 font-bold">
-                    <i class="fa-solid fa-shield-halved text-sm"></i>
+        <!-- Content Area -->
+        <main class="flex-1 p-6 lg:p-10 space-y-8">
+            
+            <!-- Page Title -->
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl lg:text-3xl font-bold tracking-tight text-white">Enterprise Overview</h1>
+                    <p class="text-sm text-slate-400 mt-1">Real-time telemetry and gateway orchestration console.</p>
                 </div>
-                <span class="font-black tracking-wider text-white">SAMSE</span>
+                <button onclick="location.reload()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 rounded-lg text-sm border border-slate-700 transition">
+                    Refresh Stats
+                </button>
             </div>
-            <p class="text-xs font-mono text-gray-500 text-center">
-                &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
-            </p>
-            <div class="flex space-x-6 text-gray-400">
-                <a href="https://github.com/SohrabALi446/SAMSE-Web-Portal" target="_blank" class="hover:text-cyber-cyan transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
-                <a href="contact.html" class="hover:text-cyber-cyan transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-    </script>
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
+                    <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Active Tunnels</p>
+                    <p class="text-3xl font-bold text-white mt-2">12</p>
+                    <span class="text-xs text-emerald-400 mt-2 inline-block">↑ 100% operational</span>
+                </div>
+                <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
+                    <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Registered Users</p>
+                    <p class="text-3xl font-bold text-white mt-2">48</p>
+                    <span class="text-xs text-slate-400 mt-2 inline-block">Across Linux & Windows</span>
+                </div>
+                <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
+                    <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Data Routed (24h)</p>
+                    <p class="text-3xl font-bold text-white mt-2">34.8 GB</p>
+                    <span class="text-xs text-accent mt-2 inline-block">Encrypted AES-256</span>
+                </div>
+                <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
+                    <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Gateway Uptime</p>
+                    <p class="text-3xl font-bold text-white mt-2">99.98%</p>
+                    <span class="text-xs text-emerald-400 mt-2 inline-block">Stable daemon</span>
+                </div>
+            </div>
+
+            <!-- Quick Actions & Agent Builders -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-cardbg border border-slate-800 rounded-xl p-6 shadow-md">
+                    <h2 class="text-lg font-semibold text-white mb-4">Agent Deployment Builders</h2>
+                    <p class="text-sm text-slate-400 mb-6">Generate automated client installation packages for target operating systems.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="alert('Triggering Linux Agent Builder script...')" class="bg-accent hover:bg-sky-400 text-slate-950 font-semibold px-4 py-2.5 rounded-lg text-sm transition shadow-lg shadow-sky-500/10">
+                            Build Linux Agent (.sh)
+                        </button>
+                        <button onclick="alert('Triggering Windows Agent Builder script...')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2.5 rounded-lg text-sm transition">
+                            Build Windows Agent (.ps1)
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-cardbg border border-slate-800 rounded-xl p-6 shadow-md">
+                    <h2 class="text-lg font-semibold text-white mb-4">AAA Database Controls</h2>
+                    <p class="text-sm text-slate-400 mb-6">Manage authentication tokens, access policies, and session revoking.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="alert('Opening AAA User management table...')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2.5 rounded-lg text-sm transition">
+                            Manage Users
+                        </button>
+                        <button onclick="alert('Exporting audit logs to CSV...')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2.5 rounded-lg text-sm transition">
+                            Export Audit Logs
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Tunnels Table -->
+            <div class="bg-cardbg border border-slate-800 rounded-xl p-6 shadow-md">
+                <h2 class="text-lg font-semibold text-white mb-4">Active Tunnel Connections</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-300">
+                        <thead class="bg-slate-800/50 text-xs uppercase text-slate-400 border-b border-slate-800">
+                            <tr>
+                                <th class="px-4 py-3">Client ID</th>
+                                <th class="px-4 py-3">Virtual IP</th>
+                                <th class="px-4 py-3">Platform</th>
+                                <th class="px-4 py-3">Connected Since</th>
+                                <th class="px-4 py-3">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800">
+                            <tr class="hover:bg-slate-800/30 transition">
+                                <td class="px-4 py-3 font-medium text-white">agent_termux_01</td>
+                                <td class="px-4 py-3 text-accent">10.8.0.2</td>
+                                <td class="px-4 py-3">Linux / Android</td>
+                                <td class="px-4 py-3 text-slate-400">14 mins ago</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs border border-emerald-500/20">Active</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition">
+                                <td class="px-4 py-3 font-medium text-white">agent_win_corp</td>
+                                <td class="px-4 py-3 text-accent">10.8.0.5</td>
+                                <td class="px-4 py-3">Windows 11 Pro</td>
+                                <td class="px-4 py-3 text-slate-400">2 hours ago</td>
+                                <td class="px-4 py-3"><span class="px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs border border-emerald-500/20">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
 </body>
 </html>
