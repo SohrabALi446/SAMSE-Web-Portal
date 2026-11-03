@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Suite - SAMSE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6' } } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>.matrix-bg { background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px); background-size: 40px 40px; } .glow-box-hover:hover { box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3); }</style>
+</head>
+<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl"><i class="fa-solid fa-shield-halved"></i></div>
+                <span class="text-xl font-black text-white">SAMSE</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-cyber-cyan">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-cyber-cyan">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-cyber-cyan">Services</a>
+                <a href="products.html" class="text-cyber-cyan font-semibold">Product Suite</a>
+                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-mono">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest block mb-2">// ENTERPRISE INNOVATION ROADMAP</span>
+            <h1 class="text-4xl font-extrabold text-white mb-4">SAMSE Product Suite</h1>
+            <p class="text-gray-400">Click on any product below to view full specifications, architecture details, and deployment status.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- NXTMGR -->
+            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">Core Platform</span>
+                        <i class="fa-solid fa-sliders text-cyber-cyan text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">NXTMGR</h3>
+                    <p class="text-xs font-mono text-cyber-cyan mb-3">Security Manager Console</p>
+                    <p class="text-gray-400 text-sm mb-6">Central administrative command station to manage, monitor, and configure all SAMSE tools.</p>
+                </div>
+                <a href="products/nxtmgr.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+            </div>
+
+            <!-- NXTFW -->
+            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-cyber-amber/10 border border-cyber-amber/30 text-cyber-amber font-mono text-xs">In Preparation</span>
+                        <i class="fa-solid fa-shield text-cyber-cyan text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">NXTFW</h3>
+                    <p class="text-xs font-mono text-cyber-cyan mb-3">Software Firewall</p>
+                    <p class="text-gray-400 text-sm mb-6">High-speed kernel-level packet inspection firewall requiring zero dedicated hardware appliances.</p>
+                </div>
+                <a href="products/nxtfw.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+            </div>
+
+            <!-- NXTGTW -->
+            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-cyber-amber/10 border border-cyber-amber/30 text-cyber-amber font-mono text-xs">In Preparation</span>
+                        <i class="fa-solid fa-route text-cyber-blue text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">NXTGTW</h3>
+                    <p class="text-xs font-mono text-cyber-blue mb-3">Software Gateway</p>
+                    <p class="text-gray-400 text-sm mb-6">Enterprise routing and secure traffic transit gateway deployable instantly on virtual cloud instances.</p>
+                </div>
+                <a href="products/nxtgtw.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+            </div>
+
+            <!-- NXTSIEM -->
+            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">Under Development</span>
+                        <i class="fa-solid fa-chart-line text-cyber-cyan text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">NXTSIEM</h3>
+                    <p class="text-xs font-mono text-cyber-cyan mb-3">Security Analytics SIEM</p>
+                    <p class="text-gray-400 text-sm mb-6">Lightweight centralized log collector and threat correlation engine with real-time analytics.</p>
+                </div>
+                <a href="products/nxtsiem.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+            </div>
+
+            <!-- NXTDR -->
+            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">Under Development</span>
+                        <i class="fa-solid fa-bug-slash text-cyber-cyan text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">NXTDR</h3>
+                    <p class="text-xs font-mono text-cyber-cyan mb-3">Endpoint Detection & Response</p>
+                    <p class="text-gray-400 text-sm mb-6">Low-overhead host agent monitoring process trees, file integrity, and behavioral alerts.</p>
+                </div>
+                <a href="products/nxtdr.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+            </div>
+
+            <!-- NXTSM -->
+            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs">Planning</span>
+                        <i class="fa-solid fa-ticket text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">NXTSM</h3>
+                    <p class="text-xs font-mono text-purple-400 mb-3">IT Service Management</p>
+                    <p class="text-gray-400 text-sm mb-6">Streamlined incident ticketing, asset tracking, and automated workflow change management.</p>
+                </div>
+                <a href="products/nxtsm.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+            </div>
+
+            <!-- NXTVPN -->
+            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs">Planning</span>
+                        <i class="fa-solid fa-lock text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">NXTVPN</h3>
+                    <p class="text-xs font-mono text-purple-400 mb-3">Secure Cryptotunnel VPN</p>
+                    <p class="text-gray-400 text-sm mb-6">Zero-trust cryptographic mesh VPN gateway providing secure remote connectivity without hardware boxes.</p>
+                </div>
+                <a href="products/nxtvpn.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
+        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    </footer>
+</body>
+</html>
