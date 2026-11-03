@@ -1,43 +1,173 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8"><title>NXTSIEM - SAMSE Security Analytics</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXTSIEM - SAMSE Security Analytics & Log Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            darkMode: 'class', 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        cyber: { 
+                            950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', purple: '#a855f7' 
+                        } 
+                    } 
+                } 
+            } 
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6' } } } } }</script>
+    <style>
+        .matrix-bg { 
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px); 
+            background-size: 40px 40px; 
+            background-position: 0 0, 20px 20px;
+        } 
+        .glow-box { 
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); 
+        }
+        .glass-panel {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+        }
+    </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans min-h-screen flex flex-col">
+<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col antialiased">
+    
+    <!-- Navbar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="../index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold"><i class="fa-solid fa-shield-halved"></i></div>
-                <span class="text-xl font-black text-white">SAMSE</span>
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-cyber-cyan/20">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-blue bg-clip-text text-transparent">SAMSE</span>
+                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
+                </div>
             </a>
-            <a href="../products.html" class="text-cyber-cyan font-mono text-xs">&larr; Back to Products</a>
+            <a href="../products.html" class="text-cyber-cyan font-mono text-xs uppercase hover:underline flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Back to Products
+            </a>
         </div>
     </header>
-    <main class="flex-grow py-16 px-4 max-w-4xl mx-auto">
-        <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs uppercase">Under Development</span>
-        <h1 class="text-4xl font-black text-white mt-4 mb-2">NXTSIEM</h1>
-        <p class="text-cyber-cyan font-mono text-sm mb-8">Security Information & Event Management</p>
-        
-        <div class="p-8 rounded-2xl bg-cyber-900 border border-cyber-800 space-y-6">
-            <h3 class="text-xl font-bold text-white">Overview</h3>
-            <p class="text-gray-300 text-sm leading-relaxed">NXTSIEM is a lightweight, high-performance log collection and threat correlation engine designed to ingest enterprise syslogs, Windows event logs, and API streams without heavy hardware overhead.</p>
-            
-            <h3 class="text-xl font-bold text-white pt-4">Technical Highlights</h3>
-            <ul class="space-y-3 font-mono text-xs text-gray-300">
-                <li><i class="fa-solid fa-check text-cyber-cyan mr-2"></i> High-speed Syslog ingestion over TCP/UDP port 514</li>
-                <li><i class="fa-solid fa-check text-cyber-cyan mr-2"></i> Custom Rules Engine for real-time anomaly detection</li>
-                <li><i class="fa-solid fa-check text-cyber-cyan mr-2"></i> Full telemetry reporting directly into NXTMGR</li>
-            </ul>
 
-            <div class="pt-6 border-t border-cyber-800 flex justify-between items-center">
-                <span class="font-mono text-xs text-gray-400">Status: <strong class="text-cyber-cyan">Active Build</strong></span>
-                <a href="../contact.html" class="px-6 py-3 rounded-xl bg-cyber-cyan text-cyber-950 font-bold text-sm font-mono">Request Access</a>
+    <!-- Main Content -->
+    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12 w-full">
+        
+        <!-- Product Header Banner -->
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl glow-box relative overflow-hidden">
+            <div class="absolute top-6 right-6">
+                <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs uppercase tracking-wider">
+                    ● Active Development (v0.8)
+                </span>
+            </div>
+            
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="w-14 h-14 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan text-2xl">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">NXTSIEM</h1>
+                    <p class="text-cyber-cyan font-mono text-xs uppercase tracking-widest mt-1">Security Information & Event Management (SIEM)</p>
+                </div>
+            </div>
+
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed mt-6 max-w-3xl">
+                NXTSIEM is a lightweight, high-performance log collection and threat correlation engine engineered to ingest enterprise syslogs, Windows event logs, and API streams with exceptional efficiency and minimal overhead.
+            </p>
+        </div>
+
+        <!-- Basic Information Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-circle-info text-cyber-cyan text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Basic Information & Core Specs</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Log Ingestion Protocols</span>
+                    <p class="text-gray-400">High-speed Syslog collection over TCP/UDP port 514, secure TLS streams, and structured API hooks.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Parsing & Normalization</span>
+                    <p class="text-gray-400">Advanced custom log source parsing built on deep administrative experience with QRadar and ArcSight.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Custom Rules Engine (CRE)</span>
+                    <p class="text-gray-400">Real-time behavioral anomaly detection, threshold correlation, and automated alert piping into <strong class="text-white">NXTMGR</strong>.</p>
+                </div>
             </div>
         </div>
+
+        <!-- Why It's Good for SMEs Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-building-shield text-emerald-400 text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Why NXTSIEM is Ideal for Small & Medium Enterprises (SMEs)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-coins text-emerald-400"></i> Zero Data-Volume Licensing Penalties
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Commercial SIEM vendors charge exorbitant fees per Gigabyte of ingested logs, punishing growing businesses for collecting necessary security data. NXTSIEM features predictable, optimized pricing with zero volume tax.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-cyber-cyan"></i> Enterprise-Grade Threat Visibility
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        SMEs face sophisticated cyber threats just like Fortune 500 companies. NXTSIEM delivers professional rule tuning, Windows/Linux event monitoring, and rapid incident detection without requiring a 20-person SOC team.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-plug text-purple-400"></i> Native Cross-Product Integration
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Because NXTSIEM shares a unified core with <strong class="text-white">NXTMGR</strong> and <strong class="text-white">NXTDR</strong>, security alerts don't just sit in a log viewer—they actively trigger automated host isolation and firewall blocks.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-file-shield text-amber-400"></i> Regulatory Compliance Made Easy
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Easily meet compliance requirements (such as ISO 27001, SOC 2, or HIPAA) by maintaining centralized, tamper-evident audit logs and automated reporting across your entire IT environment.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action / CTA Footer Banner -->
+        <div class="p-8 rounded-2xl bg-gradient-to-r from-cyber-900 to-cyber-800 border border-cyber-700 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+            <div>
+                <h3 class="text-lg font-bold text-white font-mono">Ready to deploy high-speed log analytics?</h3>
+                <p class="text-gray-400 text-xs mt-1">Connect with SAMSE engineers to discuss NXTSIEM deployment for your enterprise.</p>
+            </div>
+            <a href="../contact.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold font-mono text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/20 whitespace-nowrap">
+                Request NXTSIEM Access
+            </a>
+        </div>
+
     </main>
-    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">&copy; 2026 SAMSE</footer>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
+        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    </footer>
 </body>
 </html>
