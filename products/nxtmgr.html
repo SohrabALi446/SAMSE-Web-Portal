@@ -1,43 +1,251 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8"><title>NXTMGR - SAMSE Security Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXTMGR - SAMSE Security Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            darkMode: 'class', 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        cyber: { 
+                            950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', purple: '#a855f7' 
+                        } 
+                    } 
+                } 
+            } 
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6' } } } } }</script>
+    <style>
+        .matrix-bg { 
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px); 
+            background-size: 40px 40px; 
+            background-position: 0 0, 20px 20px;
+        } 
+        .glow-box { 
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); 
+        }
+        .glass-panel {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+        }
+    </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans min-h-screen flex flex-col">
+<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col antialiased">
+    
+    <!-- Navbar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="../index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold"><i class="fa-solid fa-shield-halved"></i></div>
-                <span class="text-xl font-black text-white">SAMSE</span>
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-cyber-cyan/20">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-blue bg-clip-text text-transparent">SAMSE</span>
+                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
+                </div>
             </a>
-            <a href="../products.html" class="text-cyber-cyan font-mono text-xs">&larr; Back to Products</a>
+            <a href="../products.html" class="text-cyber-cyan font-mono text-xs uppercase hover:underline flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Back to Products
+            </a>
         </div>
     </header>
-    <main class="flex-grow py-16 px-4 max-w-4xl mx-auto">
-        <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs uppercase">Core Management Platform</span>
-        <h1 class="text-4xl font-black text-white mt-4 mb-2">NXTMGR (Security Manager)</h1>
-        <p class="text-cyber-cyan font-mono text-sm mb-8">Unified Command Station & Orchestrator</p>
-        
-        <div class="p-8 rounded-2xl bg-cyber-900 border border-cyber-800 space-y-6">
-            <h3 class="text-xl font-bold text-white">Overview</h3>
-            <p class="text-gray-300 text-sm leading-relaxed">NXTMGR serves as the central administrative hub for the entire SAMSE ecosystem. It provides real-time health monitoring, bulk policy distribution, and credential synchronization across all software-defined security modules (`NXTFW`, `NXTGTW`, `NXTSIEM`, `NXTDR`, `NXTSM`, and `NXTVPN`).</p>
-            
-            <h3 class="text-xl font-bold text-white pt-4">Key Capabilities</h3>
-            <ul class="space-y-3 font-mono text-xs text-gray-300">
-                <li><i class="fa-solid fa-check text-cyber-cyan mr-2"></i> Single-pane-of-glass multi-node orchestration</li>
-                <li><i class="fa-solid fa-check text-cyber-cyan mr-2"></i> RESTful API backend for automated CI/CD policy pushes</li>
-                <li><i class="fa-solid fa-check text-cyber-cyan mr-2"></i> Encrypted agent communication channel with mutual TLS (mTLS)</li>
-            </ul>
 
-            <div class="pt-6 border-t border-cyber-800 flex justify-between items-center">
-                <span class="font-mono text-xs text-gray-400">Hardware Requirement: <strong class="text-white">None (Runs on any VM/Cloud instance)</strong></span>
-                <a href="../contact.html" class="px-6 py-3 rounded-xl bg-cyber-cyan text-cyber-950 font-bold text-sm font-mono">Request Access</a>
+    <!-- Main Content -->
+    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12 w-full">
+        
+        <!-- Product Header Banner -->
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl glow-box relative overflow-hidden">
+            <div class="absolute top-6 right-6">
+                <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs uppercase tracking-wider">
+                    ● Core Management Platform (v0.8)
+                </span>
+            </div>
+            
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="w-14 h-14 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan text-2xl">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">NXTMGR</h1>
+                    <p class="text-cyber-cyan font-mono text-xs uppercase tracking-widest mt-1">Unified Command Station & Security Manager</p>
+                </div>
+            </div>
+
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed mt-6 max-w-3xl">
+                NXTMGR serves as the central administrative hub and orchestration control plane for the entire SAMSE ecosystem. It provides real-time health telemetry, bulk policy distribution, and frictionless native integration across all software-defined modules (<code class="text-cyber-cyan">NXTFW</code>, <code class="text-cyber-cyan">NXTGTW</code>, <code class="text-cyber-cyan">NXTSIEM</code>, <code class="text-cyber-cyan">NXTDR</code>, <code class="text-cyber-cyan">NXTScan</code>, <code class="text-cyber-cyan">NXTSM</code>, and <code class="text-cyber-cyan">NXTVPN</code>).
+            </p>
+        </div>
+
+        <!-- Basic Information Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-circle-info text-cyber-cyan text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Basic Information & Core Specs</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Deployment Model</span>
+                    <p class="text-gray-400">Lightweight web daemon package deployable on any Linux VPS, local server, or Termux staging node.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Communication Security</span>
+                    <p class="text-gray-400">Encrypted agent communication channels backed by mutual TLS (mTLS) and token authentication.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">API Architecture</span>
+                    <p class="text-gray-400">Robust RESTful backend enabling automated CI/CD policy pushes and cross-module event piping.</p>
+                </div>
             </div>
         </div>
+
+        <!-- NEW SECTION: How NXTMGR Manages & Integrates All NXT Products -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-circle-nodes text-purple-400 text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Ecosystem Orchestration & Cross-Product Integration</h2>
+            </div>
+
+            <p class="text-gray-300 text-sm leading-relaxed">
+                Unlike traditional security setups where products operate in isolated silos requiring complex third-party connectors or heavy middleware, <strong class="text-white">NXTMGR</strong> is engineered from the ground up with a <span class="text-cyber-cyan">Unified Data Bus</span> and shared SQLite AAA core. This enables seamless, plug-and-play integration from one NXT product directly into another.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 text-sm">
+                <!-- Management Approach -->
+                <div class="p-6 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-3">
+                    <h3 class="font-bold text-white flex items-center gap-2 text-base">
+                        <i class="fa-solid fa-network-wired text-cyber-cyan"></i> How It Manages All NXT Products
+                    </h3>
+                    <ul class="space-y-2 text-xs font-mono text-gray-400">
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> <strong class="text-gray-200">Single Pane of Glass:</strong> One web dashboard controls firewalls, VPNs, SIEM logs, and EDR agents.</li>
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> <strong class="text-gray-200">Centralized AAA Core:</strong> Manages users, RBAC permissions, and authentication tokens across all modules.</li>
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> <strong class="text-gray-200">Bulk Policy Distribution:</strong> Instantly pushes rule updates to NXTFW and routing tables to NXTGTW.</li>
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-2"></i> <strong class="text-gray-200">Live Health Telemetry:</strong> Pings active daemons and visualizes uptime metrics in real time.</li>
+                    </ul>
+                </div>
+
+                <!-- Easy Cross-Product Integration -->
+                <div class="p-6 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-3">
+                    <h3 class="font-bold text-white flex items-center gap-2 text-base">
+                        <i class="fa-solid fa-shuffle text-purple-400"></i> Frictionless Cross-Product Synergy
+                    </h3>
+                    <ul class="space-y-2 text-xs font-mono text-gray-400">
+                        <li><i class="fa-solid fa-arrow-right text-cyber-cyan mr-2"></i> <strong class="text-gray-200">NXTScan ➔ NXTFW:</strong> Vulnerability scan findings automatically feed risk data to tighten firewall rule sets.</li>
+                        <li><i class="fa-solid fa-arrow-right text-cyber-cyan mr-2"></i> <strong class="text-gray-200">NXTSIEM ➔ NXTDR:</strong> Log alerts trigger automated endpoint isolation playbooks on compromised hosts.</li>
+                        <li><i class="fa-solid fa-arrow-right text-cyber-cyan mr-2"></i> <strong class="text-gray-200">NXTVPN ➔ NXTSM:</strong> Cryptotunnel connection and session logs auto-generate IT service tickets and accounting records.</li>
+                        <li><i class="fa-solid fa-arrow-right text-cyber-cyan mr-2"></i> <strong class="text-gray-200">Universal Event Piping:</strong> Zero custom API scripting needed—all modules interoperate natively via NXTMGR.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works Without Hardware Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-microchip text-cyber-blue text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">How It Works Without Hardware</h2>
+            </div>
+
+            <p class="text-gray-300 text-sm leading-relaxed">
+                Traditional enterprise management systems require dedicated hardware management consoles or expensive physical appliance controllers. NXTMGR operates entirely as a software-defined web management suite:
+            </p>
+
+            <div class="space-y-4 font-mono text-xs">
+                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
+                    <span class="px-2.5 py-1 bg-cyber-cyan/20 text-cyber-cyan font-bold rounded">01</span>
+                    <div>
+                        <span class="text-white font-bold block text-sm mb-1">Centralized Web Daemon Architecture</span>
+                        <span class="text-gray-400 leading-relaxed">NXTMGR runs as an asynchronous application service on standard Linux operating systems, coordinating multi-node security telemetry without requiring specialized controller hardware.</span>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
+                    <span class="px-2.5 py-1 bg-cyber-blue/20 text-cyber-blue font-bold rounded">02</span>
+                    <div>
+                        <span class="text-white font-bold block text-sm mb-1">Lightweight Database & State Management</span>
+                        <span class="text-gray-400 leading-relaxed">It utilizes optimized SQLite database cores and structured configuration stores to maintain agent status, access policies, and audit logs with minimal memory footprint.</span>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
+                    <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 font-bold rounded">03</span>
+                    <div>
+                        <span class="text-white font-bold block text-sm mb-1">Distributed Agent Synchronization</span>
+                        <span class="text-gray-400 leading-relaxed">Rather than logging into individual firewalls or VPN servers, administrators update policies once in NXTMGR, which securely propagates the changes across all deployed endpoints instantly.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why It's Good for SMEs Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-building-shield text-emerald-400 text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Why NXTMGR is Ideal for Small & Medium Enterprises (SMEs)</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-eye text-cyber-cyan"></i> Single Pane of Glass Visibility
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        SME IT teams are often small and stretched thin. NXTMGR eliminates the need to juggle multiple disparate security tools by bringing firewalls, VPN tunnels, EDR agents, and vulnerability scanners into one intuitive dashboard.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-coins text-emerald-400"></i> Zero Licensing & Hardware Costs
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Enterprise management platforms carry exorbitant per-seat licensing fees and require expensive hardware controllers. NXTMGR provides enterprise-grade orchestration with zero hardware overhead and transparent software deployment.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clock text-amber-400"></i> Operational Efficiency & Automation
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Automating routine configuration backups, user credential management, and policy rollouts saves hours of manual administrative labor, allowing lean engineering teams to focus on core business growth.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-purple-400"></i> Centralized Security Governance
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Enforcing consistent security baselines across remote workers, cloud servers, and local branch offices is effortless with NXTMGR's centralized access controls and automated audit logging.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action / CTA Footer Banner -->
+        <div class="p-8 rounded-2xl bg-gradient-to-r from-cyber-900 to-cyber-800 border border-cyber-700 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+            <div>
+                <h3 class="text-lg font-bold text-white font-mono">Ready to unify your security administration?</h3>
+                <p class="text-gray-400 text-xs mt-1">Connect with SAMSE engineers to discuss NXTMGR deployment for your enterprise.</p>
+            </div>
+            <a href="../contact.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold font-mono text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/20 whitespace-nowrap">
+                Request NXTMGR Access
+            </a>
+        </div>
+
     </main>
-    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">&copy; 2026 SAMSE</footer>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
+        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    </footer>
 </body>
 </html>
