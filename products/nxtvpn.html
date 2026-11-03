@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8"><title>NXTVPN - SAMSE Secure Cryptotunnel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6' } } } } }</script>
+</head>
+<body class="bg-cyber-950 text-gray-100 font-sans min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold"><i class="fa-solid fa-shield-halved"></i></div>
+                <span class="text-xl font-black text-white">SAMSE</span>
+            </a>
+            <a href="../products.html" class="text-cyber-cyan font-mono text-xs">&larr; Back to Products</a>
+        </div>
+    </header>
+    <main class="flex-grow py-16 px-4 max-w-4xl mx-auto">
+        <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs uppercase">Planning</span>
+        <h1 class="text-4xl font-black text-white mt-4 mb-2">NXTVPN</h1>
+        <p class="text-purple-400 font-mono text-sm mb-8">Secure Cryptotunnel VPN Gateway</p>
+        
+        <div class="p-8 rounded-2xl bg-cyber-900 border border-cyber-800 space-y-6">
+            <h3 class="text-xl font-bold text-white">Overview</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">NXTVPN is planned as a zero-trust cryptographic mesh VPN gateway built on top of modern WireGuard protocols, allowing secure remote connectivity without requiring physical hardware concentrators.</p>
+            
+            <h3 class="text-xl font-bold text-white pt-4">Planned Features</h3>
+            <ul class="space-y-3 font-mono text-xs text-gray-300">
+                <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> High-speed WireGuard cryptographic tunneling protocol</li>
+                <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Centralized peer key provisioning via NXTMGR</li>
+                <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Zero proprietary hardware dependency</li>
+            </ul>
+
+            <div class="pt-6 border-t border-cyber-800 flex justify-between items-center">
+                <span class="font-mono text-xs text-gray-400">Phase: <strong class="text-purple-400">Design & Architecture</strong></span>
+                <a href="../contact.html" class="px-6 py-3 rounded-xl bg-cyber-cyan text-cyber-950 font-bold text-sm font-mono">Request Access</a>
+            </div>
+        </div>
+    </main>
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">&copy; 2026 SAMSE</footer>
+</body>
+</html>
