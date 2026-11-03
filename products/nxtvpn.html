@@ -1,143 +1,183 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8"><title>NXTVPN - SAMSE Secure Cryptotunnel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXTVPN - SAMSE Secure Cryptotunnel & Access Gateway</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            darkMode: 'class', 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        darkbg: '#030712',
+                        cardbg: '#0b0f19',
+                        accent: '#06b6d4',
+                        success: '#10b981',
+                        cyber: { 
+                            950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', purple: '#a855f7' 
+                        } 
+                    } 
+                } 
+            } 
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6' } } } } }</script>
+    <style>
+        .matrix-bg { 
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px); 
+            background-size: 40px 40px; 
+            background-position: 0 0, 20px 20px;
+        } 
+        .glow-box { 
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); 
+        }
+        .glass-panel {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+        }
+    </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans min-h-screen flex flex-col">
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold"><i class="fa-solid fa-shield-halved"></i></div>
-                <span class="text-xl font-black text-white">SAMSE</span>
-            </a>
-            <a href="../products.html" class="text-cyber-cyan font-mono text-xs">&larr; Back to Products</a>
-        </div>
-    </header>
-    <main class="flex-grow py-16 px-4 max-w-4xl mx-auto">
-        <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs uppercase">Planning</span>
-        <h1 class="text-4xl font-black text-white mt-4 mb-2">NXTVPN</h1>
-        <p class="text-purple-400 font-mono text-sm mb-8">Secure Cryptotunnel VPN Gateway</p>
-        
-        <div class="p-8 rounded-2xl bg-cyber-900 border border-cyber-800 space-y-6">
-            <h3 class="text-xl font-bold text-white">Overview</h3>
-            <p class="text-gray-300 text-sm leading-relaxed">NXTVPN is planned as a zero-trust cryptographic mesh VPN gateway built on top of modern WireGuard protocols, allowing secure remote connectivity without requiring physical hardware concentrators.</p>
-            
-            <h3 class="text-xl font-bold text-white pt-4">Planned Features</h3>
-            <ul class="space-y-3 font-mono text-xs text-gray-300">
-                <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> High-speed WireGuard cryptographic tunneling protocol</li>
-                <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Centralized peer key provisioning via NXTMGR</li>
-                <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Zero proprietary hardware dependency</li>
-            </ul>
-
-<body class="bg-darkbg text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-darkbg text-slate-100 font-sans matrix-bg min-h-screen flex flex-col antialiased">
 
     <!-- Top Navigation Bar -->
-    <header class="bg-cardbg border-b border-slate-800 px-6 py-4 flex justify-between items-center shadow-lg">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/90 border-b border-slate-800 px-6 py-4 flex justify-between items-center shadow-lg">
         <div class="flex items-center space-x-3">
-            <div class="bg-accent/10 border border-accent/30 p-2 rounded-lg text-accent font-bold tracking-wider">
-                SAMSE // NXTVPN
-            </div>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
-                ● AAA Core Active
+            <a href="../index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-blue-500 flex items-center justify-center text-slate-950 font-bold text-xl shadow-lg shadow-accent/20">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-accent via-white to-blue-400 bg-clip-text text-transparent">SAMSE</span>
+                    <span class="block text-[10px] text-slate-400 font-mono tracking-widest uppercase">NXTVPN Gateway</span>
+                </div>
+            </a>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium font-mono hidden sm:inline-block">
+                ● AAA Core Active (8443)
             </span>
         </div>
         <div class="flex items-center space-x-4 text-sm text-slate-400">
-            <span>Gateway: <strong class="text-slate-200">127.0.0.1:8443</strong></span>
-            <span class="border-l border-slate-700 pl-4">Admin: <strong class="text-slate-200">Root</strong></span>
+            <a href="../products.html" class="text-accent font-mono text-xs uppercase hover:underline flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Back to Products
+            </a>
         </div>
     </header>
 
-    <!-- Main Dashboard Layout -->
+    <!-- Main Dashboard & Content Layout -->
     <div class="flex flex-1">
         
-        <!-- Sidebar -->
-        <aside class="w-64 bg-cardbg/50 border-r border-slate-800 p-6 hidden md:block">
-            <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Navigation</h3>
-            <nav class="space-y-2">
-                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg bg-accent/10 text-accent font-medium text-sm">Dashboard</a>
-                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 text-sm transition">Tunnels & Sessions</a>
-                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 text-sm transition">AAA User Management</a>
-                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 text-sm transition">Agent Builders</a>
-                <a href="#" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 text-sm transition">Audit Logs</a>
+        <!-- Sidebar Navigation -->
+        <aside class="w-64 bg-cardbg/50 border-r border-slate-800 p-6 hidden lg:block">
+            <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4 font-mono">// Gateway Console</h3>
+            <nav class="space-y-2 font-mono text-xs">
+                <a href="#overview" class="flex items-center px-4 py-2.5 rounded-lg bg-accent/10 text-accent font-medium">Overview & Arch</a>
+                <a href="#dashboard" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition">Live Tunnel Telemetry</a>
+                <a href="#builders" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition">Agent Builders (.sh / .ps1)</a>
+                <a href="#sme-value" class="flex items-center px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-slate-200 transition">SME Value & Security</a>
             </nav>
         </aside>
 
-        <!-- Content Area -->
-        <main class="flex-1 p-6 lg:p-10 space-y-8">
+        <!-- Main Content Area -->
+        <main class="flex-1 p-6 lg:p-10 space-y-12 max-w-7xl mx-auto w-full">
             
-            <!-- Page Title -->
-            <div class="flex justify-between items-center">
-                <div>
-                    <h1 class="text-2xl lg:text-3xl font-bold tracking-tight text-white">Enterprise Overview</h1>
-                    <p class="text-sm text-slate-400 mt-1">Real-time telemetry and gateway orchestration console.</p>
+            <!-- Section: Overview & Banner -->
+            <section id="overview" class="glass-panel p-8 sm:p-12 rounded-3xl glow-box relative overflow-hidden space-y-6">
+                <div class="absolute top-6 right-6">
+                    <span class="px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent font-mono text-xs uppercase tracking-wider">
+                        ● Active Production (v1.0)
+                    </span>
                 </div>
-                <button onclick="location.reload()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 rounded-lg text-sm border border-slate-700 transition">
-                    Refresh Stats
-                </button>
-            </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 rounded-xl bg-accent/10 border border-accent/30 flex items-center justify-center text-accent text-2xl">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">NXTVPN</h1>
+                        <p class="text-accent font-mono text-xs uppercase tracking-widest mt-1">Zero-Trust Cryptotunnel & AAA Access Gateway</p>
+                    </div>
+                </div>
 
-            <!-- Stats Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
-                    <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Active Tunnels</p>
-                    <p class="text-3xl font-bold text-white mt-2">12</p>
-                    <span class="text-xs text-emerald-400 mt-2 inline-block">↑ 100% operational</span>
-                </div>
-                <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
-                    <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Registered Users</p>
-                    <p class="text-3xl font-bold text-white mt-2">48</p>
-                    <span class="text-xs text-slate-400 mt-2 inline-block">Across Linux & Windows</span>
-                </div>
-                <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
-                    <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Data Routed (24h)</p>
-                    <p class="text-3xl font-bold text-white mt-2">34.8 GB</p>
-                    <span class="text-xs text-accent mt-2 inline-block">Encrypted AES-256</span>
-                </div>
-                <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
-                    <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Gateway Uptime</p>
-                    <p class="text-3xl font-bold text-white mt-2">99.98%</p>
-                    <span class="text-xs text-emerald-400 mt-2 inline-block">Stable daemon</span>
-                </div>
-            </div>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-4xl">
+                    NXTVPN is a lightweight, high-performance cryptographic mesh VPN gateway backed by an enterprise-grade SQLite AAA (Authentication, Authorization, and Accounting) core (<code class="text-accent">nxtvpn_server.py</code>). It provides secure remote access across Linux, Windows, and Termux environments without requiring proprietary hardware concentrators.
+                </p>
+            </section>
 
-            <!-- Quick Actions & Agent Builders -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="bg-cardbg border border-slate-800 rounded-xl p-6 shadow-md">
-                    <h2 class="text-lg font-semibold text-white mb-4">Agent Deployment Builders</h2>
-                    <p class="text-sm text-slate-400 mb-6">Generate automated client installation packages for target operating systems.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="alert('Triggering Linux Agent Builder script...')" class="bg-accent hover:bg-sky-400 text-slate-950 font-semibold px-4 py-2.5 rounded-lg text-sm transition shadow-lg shadow-sky-500/10">
+            <!-- Section: Live Telemetry Dashboard -->
+            <section id="dashboard" class="space-y-6">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-2xl font-bold tracking-tight text-white">Live Gateway Telemetry</h2>
+                        <p class="text-sm text-slate-400 mt-1">Real-time session statistics and active connection monitoring.</p>
+                    </div>
+                    <button onclick="location.reload()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-4 py-2 rounded-lg text-sm border border-slate-700 transition font-mono">
+                        Refresh Stats
+                    </button>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
+                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider font-mono">Active Tunnels</p>
+                        <p class="text-3xl font-bold text-white mt-2">12</p>
+                        <span class="text-xs text-emerald-400 mt-2 inline-block font-mono">↑ 100% operational</span>
+                    </div>
+                    <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
+                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider font-mono">Registered Users</p>
+                        <p class="text-3xl font-bold text-white mt-2">48</p>
+                        <span class="text-xs text-slate-400 mt-2 inline-block font-mono">Across Linux & Windows</span>
+                    </div>
+                    <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
+                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider font-mono">Data Routed (24h)</p>
+                        <p class="text-3xl font-bold text-white mt-2">34.8 GB</p>
+                        <span class="text-xs text-accent mt-2 inline-block font-mono">Encrypted AES-256</span>
+                    </div>
+                    <div class="bg-cardbg border border-slate-800 rounded-xl p-5 shadow-md">
+                        <p class="text-xs font-medium text-slate-400 uppercase tracking-wider font-mono">Gateway Uptime</p>
+                        <p class="text-3xl font-bold text-white mt-2">99.98%</p>
+                        <span class="text-xs text-emerald-400 mt-2 inline-block font-mono">Stable daemon</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Agent Builders & AAA Controls -->
+            <section id="builders" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-cardbg border border-slate-800 rounded-xl p-6 shadow-md space-y-4">
+                    <h3 class="text-lg font-semibold text-white">Agent Deployment Builders</h3>
+                    <p class="text-sm text-slate-400">Generate automated client installation packages for target operating systems instantly.</p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="alert('Executing agent_builder.sh for Linux/Termux environment...')" class="bg-accent hover:bg-sky-400 text-slate-950 font-semibold px-4 py-2.5 rounded-lg text-sm transition shadow-lg shadow-sky-500/10 font-mono">
                             Build Linux Agent (.sh)
                         </button>
-                        <button onclick="alert('Triggering Windows Agent Builder script...')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2.5 rounded-lg text-sm transition">
+                        <button onclick="alert('Executing agent_builder.ps1 for Windows Pro deployment...')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2.5 rounded-lg text-sm transition font-mono">
                             Build Windows Agent (.ps1)
                         </button>
                     </div>
                 </div>
 
-                <div class="bg-cardbg border border-slate-800 rounded-xl p-6 shadow-md">
-                    <h2 class="text-lg font-semibold text-white mb-4">AAA Database Controls</h2>
-                    <p class="text-sm text-slate-400 mb-6">Manage authentication tokens, access policies, and session revoking.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="alert('Opening AAA User management table...')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2.5 rounded-lg text-sm transition">
+                <div class="bg-cardbg border border-slate-800 rounded-xl p-6 shadow-md space-y-4">
+                    <h3 class="text-lg font-semibold text-white">SQLite AAA Database Controls</h3>
+                    <p class="text-sm text-slate-400">Manage authentication tokens, role access policies, and session revoking.</p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="alert('Querying nxtvpn_aaa.db user management table...')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2.5 rounded-lg text-sm transition font-mono">
                             Manage Users
                         </button>
-                        <button onclick="alert('Exporting audit logs to CSV...')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2.5 rounded-lg text-sm transition">
+                        <button onclick="alert('Exporting encrypted accounting logs to CSV...')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-4 py-2.5 rounded-lg text-sm transition font-mono">
                             Export Audit Logs
                         </button>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Recent Tunnels Table -->
-            <div class="bg-cardbg border border-slate-800 rounded-xl p-6 shadow-md">
-                <h2 class="text-lg font-semibold text-white mb-4">Active Tunnel Connections</h2>
+            <!-- Section: Active Tunnel Connections Table -->
+            <section class="bg-cardbg border border-slate-800 rounded-xl p-6 shadow-md space-y-4">
+                <h3 class="text-lg font-semibold text-white">Active Tunnel Connections</h3>
                 <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm text-slate-300">
-                        <thead class="bg-slate-800/50 text-xs uppercase text-slate-400 border-b border-slate-800">
+                    <table class="w-full text-left text-sm text-slate-300 font-mono text-xs">
+                        <thead class="bg-slate-800/50 uppercase text-slate-400 border-b border-slate-800">
                             <tr>
                                 <th class="px-4 py-3">Client ID</th>
                                 <th class="px-4 py-3">Virtual IP</th>
@@ -150,7 +190,7 @@
                             <tr class="hover:bg-slate-800/30 transition">
                                 <td class="px-4 py-3 font-medium text-white">agent_termux_01</td>
                                 <td class="px-4 py-3 text-accent">10.8.0.2</td>
-                                <td class="px-4 py-3">Linux / Android</td>
+                                <td class="px-4 py-3">Linux / Android (Termux)</td>
                                 <td class="px-4 py-3 text-slate-400">14 mins ago</td>
                                 <td class="px-4 py-3"><span class="px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs border border-emerald-500/20">Active</span></td>
                             </tr>
@@ -164,19 +204,56 @@
                         </tbody>
                     </table>
                 </div>
+            </section>
+
+            <!-- Section: How It Works & SME Benefits -->
+            <section id="sme-value" class="space-y-8 pt-6 border-t border-slate-800">
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <span class="text-xs font-mono font-bold tracking-widest text-accent uppercase">// Architecture & Value Proposition</span>
+                    <h2 class="text-3xl font-extrabold text-white">Why NXTVPN is Essential for Modern Enterprises</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-panel p-8 rounded-2xl space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 border border-accent/30 flex items-center justify-center text-accent text-xl">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">SQLite AAA Core & Automated Provisioning</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            NXTVPN replaces cumbersome enterprise VPN configuration files with an automated SQLite AAA database (<code class="text-accent">nxtvpn_aaa.db</code>). Paired with automated agent installer builders (`agent_builder.sh` and `agent_builder.ps1`), administrators can provision and revoke secure client tunnels across Linux, Windows, and Termux environments in seconds.
+                        </p>
+                    </div>
+
+                    <div class="glass-panel p-8 rounded-2xl space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Seamless Integration with NXTMGR</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            NXTVPN integrates natively into the <strong class="text-white">NXTMGR</strong> control plane. Tunnel status, connection accounting logs, and user token validations are piped directly into the central management dashboard, ensuring complete cryptographic visibility and unified administrative governance.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Banner -->
+            <div class="p-8 rounded-2xl bg-gradient-to-r from-cardbg to-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+                <div>
+                    <h3 class="text-lg font-bold text-white font-mono">Ready to establish zero-trust cryptotunnels?</h3>
+                    <p class="text-slate-400 text-xs mt-1">Connect with SAMSE engineers to deploy NXTVPN in your infrastructure.</p>
+                </div>
+                <a href="../contact.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-accent to-blue-500 text-slate-950 font-bold font-mono text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg shadow-accent/20 whitespace-nowrap">
+                    Request NXTVPN Access
+                </a>
             </div>
 
         </main>
     </div>
 
-</body>
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-8 bg-darkbg text-center text-xs text-slate-500 font-mono">
+        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    </footer>
 
-            <div class="pt-6 border-t border-cyber-800 flex justify-between items-center">
-                <span class="font-mono text-xs text-gray-400">Phase: <strong class="text-purple-400">Design & Architecture</strong></span>
-                <a href="../contact.html" class="px-6 py-3 rounded-xl bg-cyber-cyan text-cyber-950 font-bold text-sm font-mono">Request Access</a>
-            </div>
-        </div>
-    </main>
-    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">&copy; 2026 SAMSE</footer>
 </body>
 </html>
