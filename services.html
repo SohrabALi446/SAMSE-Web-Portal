@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - SAMSE Security Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981' } } } } }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>.matrix-bg { background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px); background-size: 40px 40px; } .glow-box-hover:hover { box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3); }</style>
+</head>
+<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl"><i class="fa-solid fa-shield-halved"></i></div>
+                <span class="text-xl font-black text-white">SAMSE</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-cyber-cyan">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-cyber-cyan">About</a>
+                <a href="services.html" class="text-cyber-cyan font-semibold">Services</a>
+                <a href="products.html" class="text-gray-300 hover:text-cyber-cyan">Product Suite</a>
+                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-mono">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest block mb-2">// CORE CAPABILITIES</span>
+            <h1 class="text-4xl font-extrabold text-white mb-4">Enterprise Security & Administration Services</h1>
+            <p class="text-gray-400">Comprehensive defensive engineering tailored for modern enterprise environments.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 rounded-2xl bg-cyber-900/60 border border-cyber-800 glow-box-hover">
+                <div class="w-14 h-14 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan text-2xl mb-6"><i class="fa-solid fa-sliders"></i></div>
+                <h3 class="text-xl font-bold text-white mb-3">Centralized Management (NXTMGR)</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Single-pane-of-glass administrative dashboard providing centralized configuration, policy distribution, and health telemetry across all security modules.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-cyber-900/60 border border-cyber-800 glow-box-hover">
+                <div class="w-14 h-14 rounded-xl bg-cyber-blue/10 border border-cyber-blue/30 flex items-center justify-center text-cyber-blue text-2xl mb-6"><i class="fa-solid fa-network-wired"></i></div>
+                <h3 class="text-xl font-bold text-white mb-3">Software Gateways & Firewalls</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">High-performance kernel-level packet inspection, virtual routing, and stateful firewalls operating without bulky hardware appliances.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-cyber-900/60 border border-cyber-800 glow-box-hover">
+                <div class="w-14 h-14 rounded-xl bg-cyber-emerald/10 border border-cyber-emerald/30 flex items-center justify-center text-cyber-emerald text-2xl mb-6"><i class="fa-solid fa-shield-virus"></i></div>
+                <h3 class="text-xl font-bold text-white mb-3">SIEM & Threat Detection Ops</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Real-time log ingestion, behavioral host monitoring, and continuous threat mitigation playbooks engineered to block attacks dynamically.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
+        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    </footer>
+</body>
+</html>
