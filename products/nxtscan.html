@@ -1,33 +1,193 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8"><title>NXTSCAN - SAMSE Vulnerability Management</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXTSCAN - SAMSE Vulnerability Management & Posture Assessment</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            darkMode: 'class', 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        cyber: { 
+                            950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', purple: '#a855f7', rose: '#f43f5e' 
+                        } 
+                    } 
+                } 
+            } 
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6' } } } } }</script>
+    <style>
+        .matrix-bg { 
+            background-image: radial-gradient(rgba(244, 63, 94, 0.1) 1px, transparent 1px), radial-gradient(rgba(6, 182, 212, 0.05) 1px, #030712 1px); 
+            background-size: 40px 40px; 
+            background-position: 0 0, 20px 20px;
+        } 
+        .glow-box { 
+            box-shadow: 0 0 25px -5px rgba(244, 63, 94, 0.15); 
+        }
+        .glass-panel {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+        }
+    </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans min-h-screen flex flex-col">
+<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col antialiased">
+    
+    <!-- Navbar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="../index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold"><i class="fa-solid fa-shield-halved"></i></div>
-                <span class="text-xl font-black text-white">SAMSE</span>
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-rose-500 to-cyber-cyan flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-rose-500/20">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-rose-400 via-white to-cyber-cyan bg-clip-text text-transparent">SAMSE</span>
+                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
+                </div>
             </a>
-            <a href="../products.html" class="text-cyber-cyan font-mono text-xs">&larr; Back to Products</a>
+            <a href="../products.html" class="text-rose-400 font-mono text-xs uppercase hover:underline flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Back to Products
+            </a>
         </div>
     </header>
-    <main class="flex-grow py-16 px-4 max-w-4xl mx-auto">
-        <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs uppercase">Planning</span>
-        <h1 class="text-4xl font-black text-white mt-4 mb-2">NXTSCAN</h1>
-        <p class="text-purple-400 font-mono text-sm mb-8">Vulnerability Management & Posture Assessment</p>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12 w-full">
         
-        <div class="p-8 rounded-2xl bg-cyber-900 border border-cyber-800 space-y-6">
-            <h3 class="text-xl font-bold text-white">Overview</h3>
-            <p class="text-gray-300 text-sm leading-relaxed">NXTSCAN is planned as an automated vulnerability assessment and posture management engine designed to continuously scan enterprise endpoints, servers, and cloud configurations for security flaws without bulky proprietary hardware.</p>
+        <!-- Product Header Banner -->
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl glow-box relative overflow-hidden">
+            <div class="absolute top-6 right-6">
+                <span class="px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 font-mono text-xs uppercase tracking-wider">
+                    ● Active Development (v0.8)
+                </span>
+            </div>
             
-            <h3 class="text-xl font-bold text-white pt-4">Planned Features</h3>
-            <ul class="space-y-3 font-mono text-xs text-gray-300">
-                <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Automated asset discovery and scheduled credentialed scans</li>
-                <li><i class="fa-solid fa-check text-purple-400 mr-2"></i> Real-time CVSS risk prioritization and reporting dashboards</li>
-                <li><i class="fa-solid fa-check text-purple-
-                      
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="w-14 h-14 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 text-2xl">
+                    <i class="fa-solid fa-radar"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">NXTSCAN</h1>
+                    <p class="text-rose-400 font-mono text-xs uppercase tracking-widest mt-1">Vulnerability Management & Posture Assessment Engine</p>
+                </div>
+            </div>
+
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed mt-6 max-w-3xl">
+                NXTSCAN is an advanced vulnerability assessment and configuration auditing engine designed to continuously inspect enterprise endpoints, cloud instances, and network services for security flaws, missing patches, and misconfigurations with pinpoint accuracy.
+            </p>
+        </div>
+
+        <!-- Core Specifications & Capabilities Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-circle-info text-rose-400 text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Core Architecture & Scanning Pillars</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-rose-400 font-bold block text-sm">Automated Asset Discovery</span>
+                    <p class="text-gray-400">Continuously maps active IP ranges, open ports, and live running services across corporate subnets and cloud environments.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-rose-400 font-bold block text-sm">Credentialed & Deep Audits</span>
+                    <p class="text-gray-400">Executes authenticated system scans on Windows and Linux hosts to inspect registry keys, file permissions, and installed software versions.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-rose-400 font-bold block text-sm">CVSS Prioritization & Reports</span>
+                    <p class="text-gray-400">Ranks vulnerabilities by severity scores and generates executive or technical PDF compliance reports instantly.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why NXTSCAN Stands Apart Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-wand-magic-sparkles text-cyber-cyan text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Why NXTSCAN Stands Apart</h2>
+            </div>
+
+            <p class="text-gray-300 text-sm leading-relaxed">
+                Traditional enterprise scanners (like standalone Nessus or Qualys deployments) often produce massive lists of raw alerts without context. <strong class="text-white">NXTSCAN</strong> is engineered specifically to integrate with the SAMSE ecosystem, delivering actionable intelligence:
+            </p>
+
+            <div class="space-y-4 font-mono text-xs">
+                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
+                    <span class="px-2.5 py-1 bg-rose-500/20 text-rose-400 font-bold rounded">01</span>
+                    <div>
+                        <span class="text-white font-bold block text-sm mb-1">Direct Auto-Ticketing via NXTSM</span>
+                        <span class="text-gray-400 leading-relaxed">When NXTSCAN discovers a critical CVE or configuration loophole, it doesn't just log it—it automatically creates an assigned remediation ticket inside <strong class="text-white">NXTSM</strong> so IT teams can patch the vulnerability immediately.</span>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
+                    <span class="px-2.5 py-1 bg-cyber-cyan/20 text-cyber-cyan font-bold rounded">02</span>
+                    <div>
+                        <span class="text-white font-bold block text-sm mb-1">Dynamic Feedback Loop into NXTFW</span>
+                        <span class="text-gray-400 leading-relaxed">Active vulnerability findings feed real-time risk context back to <strong class="text-white">NXTMGR</strong>, enabling automated temporary firewall rule tightenings on <strong class="text-white">NXTFW</strong> while patches are being compiled.</span>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
+                    <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 font-bold rounded">03</span>
+                    <div>
+                        <span class="text-white font-bold block text-sm mb-1">Compliance & Baseline Benchmarking</span>
+                        <span class="text-gray-400 leading-relaxed">Automates compliance checks against CIS (Center for Internet Security) benchmarks and regulatory frameworks (ISO 27001, PCI-DSS, SOC 2), streamlining audit readiness for growing organizations.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Value for Lean Teams Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-chart-line text-emerald-400 text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Value for Lean IT & Security Teams</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-shield-cat text-rose-400"></i> Proactive Threat Prevention
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Finding and fixing known vulnerabilities before attackers can exploit them stops breaches before they start, transforming security posture from reactive firefighting to proactive defense.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-clock-rotate-left text-cyber-cyan"></i> Scheduled Background Audits
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Configure automated weekly or monthly scan windows that execute during off-peak hours, ensuring continuous posture oversight without disrupting business operations or user productivity.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action / CTA Footer Banner -->
+        <div class="p-8 rounded-2xl bg-gradient-to-r from-cyber-900 to-rose-950 border border-rose-900/50 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+            <div>
+                <h3 class="text-lg font-bold text-white font-mono">Ready to uncover and remediate hidden vulnerabilities?</h3>
+                <p class="text-gray-400 text-xs mt-1">Connect with SAMSE engineers to discuss NXTScan integration for your enterprise.</p>
+            </div>
+            <a href="../contact.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-500 to-cyber-cyan text-cyber-950 font-bold font-mono text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg shadow-rose-500/20 whitespace-nowrap">
+                Request NXTSCAN Access
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
+        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    </footer>
+</body>
+</html>
