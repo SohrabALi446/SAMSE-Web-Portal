@@ -4,38 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Suite - SAMSE</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6' } } } } }</script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            950: '#030712',
+                            900: '#0b0f19',
+                            800: '#111827',
+                            700: '#1f2937',
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                            rose: '#f43f5e'
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>.matrix-bg { background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px); background-size: 40px 40px; } .glow-box-hover:hover { box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3); }</style>
+    <style>
+        .matrix-bg {
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        .glow-box { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); }
+        .glow-box-hover:hover { box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3); }
+    </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col">
-    <!-- Navbar -->
+<body class="bg-cyber-950 text-gray-100 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-950 matrix-bg min-h-screen flex flex-col">
+
+    <!-- Top Navigation -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl"><i class="fa-solid fa-shield-halved"></i></div>
-                <span class="text-xl font-black text-white">SAMSE</span>
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-cyber-cyan/20">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-blue bg-clip-text text-transparent">SAMSE</span>
+                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
+                </div>
             </a>
+            
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="index.html" class="text-gray-300 hover:text-cyber-cyan">Home</a>
-                <a href="about.html" class="text-gray-300 hover:text-cyber-cyan">About</a>
-                <a href="services.html" class="text-gray-300 hover:text-cyber-cyan">Services</a>
+                <a href="index.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Services</a>
                 <a href="products.html" class="text-cyber-cyan font-semibold">Product Suite</a>
-                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-mono">Contact</a>
+                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all font-mono text-xs uppercase tracking-wider">Contact</a>
             </nav>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-gray-300 hover:text-cyber-cyan focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cyber-900 border-b border-cyber-800 px-4 pt-2 pb-4 space-y-3 font-medium">
+            <a href="index.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Home</a>
+            <a href="about.html" class="block text-gray-300 hover:text-cyber-cyan py-1">About</a>
+            <a href="services.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Services</a>
+            <a href="products.html" class="block text-cyber-cyan py-1">Product Suite</a>
+            <a href="contact.html" class="block text-cyber-cyan py-1 font-mono uppercase text-xs">Contact</a>
         </div>
     </header>
 
-    <main class="flex-grow py-20 px-4 max-w-7xl mx-auto">
+    <main class="flex-grow py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest block mb-2">// ENTERPRISE INNOVATION ROADMAP</span>
             <h1 class="text-4xl font-extrabold text-white mb-4">SAMSE Product Suite</h1>
-            <p class="text-gray-400">Click on any product below to view full specifications, architecture details, and deployment status.</p>
+            <p class="text-gray-400">Hardware-free, software-defined security tools designed for modern cloud and virtual environments. Select a tool to inspect full technical specifications.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- NXTMGR -->
+            <!-- 1. NXTMGR -->
             <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
                 <div>
                     <div class="flex items-center justify-between mb-4">
@@ -44,12 +99,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">NXTMGR</h3>
                     <p class="text-xs font-mono text-cyber-cyan mb-3">Security Manager Console</p>
-                    <p class="text-gray-400 text-sm mb-6">Central administrative command station to manage, monitor, and configure all SAMSE tools.</p>
+                    <p class="text-gray-400 text-sm mb-6">Central administrative command station to manage, monitor, and configure all SAMSE tools from a single web console.</p>
                 </div>
                 <a href="products/nxtmgr.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
             </div>
 
-            <!-- NXTFW -->
+            <!-- 2. NXTFW -->
             <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
                 <div>
                     <div class="flex items-center justify-between mb-4">
@@ -63,7 +118,7 @@
                 <a href="products/nxtfw.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
             </div>
 
-            <!-- NXTGTW -->
+            <!-- 3. NXTGTW -->
             <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
                 <div>
                     <div class="flex items-center justify-between mb-4">
@@ -77,7 +132,7 @@
                 <a href="products/nxtgtw.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
             </div>
 
-            <!-- NXTSIEM -->
+            <!-- 4. NXTSIEM -->
             <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
                 <div>
                     <div class="flex items-center justify-between mb-4">
@@ -86,12 +141,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">NXTSIEM</h3>
                     <p class="text-xs font-mono text-cyber-cyan mb-3">Security Analytics SIEM</p>
-                    <p class="text-gray-400 text-sm mb-6">Lightweight centralized log collector and threat correlation engine with real-time analytics.</p>
+                    <p class="text-gray-400 text-sm mb-6">Lightweight centralized log collector and threat correlation engine with real-time telemetry streaming.</p>
                 </div>
                 <a href="products/nxtsiem.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
             </div>
 
-            <!-- NXTDR -->
+            <!-- 5. NXTDR -->
             <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
                 <div>
                     <div class="flex items-center justify-between mb-4">
@@ -100,12 +155,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">NXTDR</h3>
                     <p class="text-xs font-mono text-cyber-cyan mb-3">Endpoint Detection & Response</p>
-                    <p class="text-gray-400 text-sm mb-6">Low-overhead host agent monitoring process trees, file integrity, and behavioral alerts.</p>
+                    <p class="text-gray-400 text-sm mb-6">Low-overhead host agent monitoring process trees, file integrity, and system anomaly behavioral alerts.</p>
                 </div>
                 <a href="products/nxtdr.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
             </div>
 
-            <!-- NXTSM -->
+            <!-- 6. NXTSM -->
             <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
                 <div>
                     <div class="flex items-center justify-between mb-4">
@@ -119,7 +174,7 @@
                 <a href="products/nxtsm.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
             </div>
 
-            <!-- NXTVPN -->
+            <!-- 7. NXTVPN -->
             <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
                 <div>
                     <div class="flex items-center justify-between mb-4">
@@ -135,8 +190,29 @@
         </div>
     </main>
 
-    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
-        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    <!-- Footer -->
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-cyber-cyan flex items-center justify-center text-cyber-950 font-bold">
+                    <i class="fa-solid fa-shield-halved text-sm"></i>
+                </div>
+                <span class="font-black tracking-wider text-white">SAMSE</span>
+            </div>
+            <p class="text-xs font-mono text-gray-500 text-center">
+                &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+            </p>
+            <div class="flex space-x-6 text-gray-400">
+                <a href="https://github.com/SohrabALi446/SAMSE-Web-Portal" target="_blank" class="hover:text-cyber-cyan transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="contact.html" class="hover:text-cyber-cyan transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    </script>
 </body>
 </html>
