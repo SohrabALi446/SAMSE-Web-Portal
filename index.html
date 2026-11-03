@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAMSE - Software Administration & Modern Security Engineering</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,40 +12,23 @@
                 extend: {
                     colors: {
                         cyber: {
-                            950: '#030712',
-                            900: '#0b0f19',
-                            800: '#111827',
-                            700: '#1f2937',
-                            600: '#374151',
-                            cyan: '#06b6d4',
-                            blue: '#3b82f6',
-                            neon: '#00f0ff',
-                            emerald: '#10b981',
-                            amber: '#f59e0b',
-                            rose: '#f43f5e'
+                            950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', rose: '#f43f5e'
                         }
                     },
-                    fontFamily: {
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
-                    }
+                    fontFamily: { mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'] }
                 }
             }
         }
     </script>
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .matrix-bg {
             background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
+            background-size: 40px 40px; background-position: 0 0, 20px 20px;
         }
-        .glow-box {
-            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15);
-        }
-        .glow-box-hover:hover {
-            box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3);
-        }
+        .glow-box { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); }
+        .glow-box-hover:hover { box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3); }
     </style>
 </head>
 <body class="bg-cyber-950 text-gray-100 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-950 matrix-bg min-h-screen flex flex-col">
@@ -54,7 +36,7 @@
     <!-- Top Navigation -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
+            <a href="index.html" class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-cyber-cyan/20">
                     <i class="fa-solid fa-shield-halved"></i>
                 </div>
@@ -62,14 +44,14 @@
                     <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-blue bg-clip-text text-transparent">SAMSE</span>
                     <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
                 </div>
-            </div>
+            </a>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#about" class="text-gray-300 hover:text-cyber-cyan transition-colors">About</a>
-                <a href="#services" class="text-gray-300 hover:text-cyber-cyan transition-colors">Services</a>
-                <a href="#products" class="text-gray-300 hover:text-cyber-cyan transition-colors">Product Suite</a>
-                <a href="#telemetry" class="text-gray-300 hover:text-cyber-cyan transition-colors">SOC Telemetry</a>
-                <a href="#contact" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all font-mono text-xs uppercase tracking-wider">Initialize Contact</a>
+                <a href="index.html" class="text-cyber-cyan font-semibold">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Services</a>
+                <a href="products.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Product Suite</a>
+                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all font-mono text-xs uppercase tracking-wider">Contact</a>
             </nav>
 
             <div class="md:hidden flex items-center">
@@ -80,16 +62,16 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-cyber-900 border-b border-cyber-800 px-4 pt-2 pb-4 space-y-3 font-medium">
-            <a href="#about" class="block text-gray-300 hover:text-cyber-cyan py-1">About</a>
-            <a href="#services" class="block text-gray-300 hover:text-cyber-cyan py-1">Services</a>
-            <a href="#products" class="block text-gray-300 hover:text-cyber-cyan py-1">Product Suite</a>
-            <a href="#telemetry" class="block text-gray-300 hover:text-cyber-cyan py-1">SOC Telemetry</a>
-            <a href="#contact" class="block text-cyber-cyan py-1 font-mono uppercase text-xs">Initialize Contact</a>
+            <a href="index.html" class="block text-cyber-cyan py-1">Home</a>
+            <a href="about.html" class="block text-gray-300 hover:text-cyber-cyan py-1">About</a>
+            <a href="services.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Services</a>
+            <a href="products.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Product Suite</a>
+            <a href="contact.html" class="block text-cyber-cyan py-1 font-mono uppercase text-xs">Contact</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-20 pb-28 overflow-hidden border-b border-cyber-800/80">
+    <section class="relative pt-24 pb-32 overflow-hidden border-b border-cyber-800/80 flex-grow flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-mono mb-6">
                 <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-pulse"></span>
@@ -106,191 +88,41 @@
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/25 flex items-center justify-center space-x-2">
+                <a href="products.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/25 flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-box-archive"></i>
                     <span>Explore Product Suite</span>
                 </a>
-                <a href="#telemetry" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyber-900 border border-cyber-700 text-gray-200 hover:border-cyber-cyan transition-all font-mono text-sm flex items-center justify-center space-x-2">
+                <a href="contact.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyber-900 border border-cyber-700 text-gray-200 hover:border-cyber-cyan transition-all font-mono text-sm flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-terminal text-cyber-cyan"></i>
-                    <span>Live SOC Telemetry</span>
+                    <span>Initialize Consultation</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Section 1: About SAMSE -->
-    <section id="about" class="py-24 border-b border-cyber-800/80 bg-cyber-900/40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest block mb-2">// CORPORATE PROFILE</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">Engineering Resilient Defenses Without Hardware Bottlenecks</h2>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        At <strong class="text-white">SAMSE</strong>, we specialize in high-performance software administration and advanced threat defense mechanisms. We believe modern security should not depend on costly, rigid physical appliance lock-ins.
-                    </p>
-                    <p class="text-gray-400 mb-8 leading-relaxed">
-                        Our engineering framework delivers lightweight, software-defined network firewalls, gateways, SIEMs, and endpoint detection utilities orchestratable via <strong class="text-cyber-cyan">NXTMGR</strong>—our unified web management portal.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6 font-mono text-sm">
-                        <div class="p-4 rounded-xl bg-cyber-900 border border-cyber-800">
-                            <span class="block text-2xl font-bold text-cyber-cyan mb-1">100%</span>
-                            <span class="text-gray-400 text-xs">Software-Defined Stack</span>
-                        </div>
-                        <div class="p-4 rounded-xl bg-cyber-900 border border-cyber-800">
-                            <span class="block text-2xl font-bold text-cyber-blue mb-1">NXTMGR</span>
-                            <span class="text-gray-400 text-xs">Unified Console Control</span>
-                        </div>
-                    </div>
+    <!-- Footer -->
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-cyber-cyan flex items-center justify-center text-cyber-950 font-bold">
+                    <i class="fa-solid fa-shield-halved text-sm"></i>
                 </div>
-                <div class="relative">
-                    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyber-cyan to-cyber-blue opacity-30 blur-xl"></div>
-                    <div class="relative rounded-2xl bg-cyber-900 border border-cyber-800 p-6 glow-box">
-                        <div class="flex items-center justify-between pb-4 border-b border-cyber-800 mb-6">
-                            <div class="flex items-center space-x-2">
-                                <span class="w-3 h-3 rounded-full bg-cyber-rose"></span>
-                                <span class="w-3 h-3 rounded-full bg-cyber-amber"></span>
-                                <span class="w-3 h-3 rounded-full bg-cyber-emerald"></span>
-                            </div>
-                            <span class="text-xs font-mono text-gray-400">samse-core-architecture.conf</span>
-                        </div>
-                        <pre class="font-mono text-xs text-cyber-cyan overflow-x-auto leading-relaxed"><code>[SAMSE_CORE_ENGINE]
-STATUS=ACTIVE
-ORCHESTRATOR=NXTMGR (Unified Console)
-HARDWARE_DEPENDENCY=NONE
-MANAGED_MODULES:
-  - NXTMGR  (Unified Manager & Controller)
-  - NXTFW   (Software Firewall)
-  - NXTGTW  (Software Gateway)
-  - NXTSIEM (Security Analytics)
-  - NXTDR   (Endpoint Detection)
-  - NXTSM   (IT Service Management)
-  - NXTVPN  (Secure Cryptotunnel)</code></pre>
-                    </div>
-                </div>
+                <span class="font-black tracking-wider text-white">SAMSE</span>
+            </div>
+            <p class="text-xs font-mono text-gray-500 text-center">
+                &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+            </p>
+            <div class="flex space-x-6 text-gray-400">
+                <a href="https://github.com/SohrabALi446/SAMSE-Web-Portal" target="_blank" class="hover:text-cyber-cyan transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="contact.html" class="hover:text-cyber-cyan transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- Section 2: Core Services -->
-    <section id="services" class="py-24 border-b border-cyber-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest block mb-2">// CORE CAPABILITIES</span>
-                <h2 class="text-3xl font-extrabold text-white mb-4">Enterprise Security & Administration Services</h2>
-                <p class="text-gray-400">Comprehensive defensive engineering tailored for modern enterprise environments.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="p-8 rounded-2xl bg-cyber-900/60 border border-cyber-800 glow-box-hover transition-all group">
-                    <div class="w-14 h-14 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-sliders"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Centralized Management (NXTMGR)</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Single-pane-of-glass administrative dashboard providing centralized configuration, policy distribution, and health telemetry across all security modules.
-                    </p>
-                    <ul class="space-y-2 font-mono text-xs text-gray-300">
-                        <li><i class="fa-solid fa-check text-cyber-cyan mr-2"></i>Unified Web UI & API Gateway</li>
-                        <li><i class="fa-solid fa-check text-cyber-cyan mr-2"></i>Automated Policy Pushes</li>
-                        <li><i class="fa-solid fa-check text-cyber-cyan mr-2"></i>Multi-Node Health Telemetry</li>
-                    </ul>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="p-8 rounded-2xl bg-cyber-900/60 border border-cyber-800 glow-box-hover transition-all group">
-                    <div class="w-14 h-14 rounded-xl bg-cyber-blue/10 border border-cyber-blue/30 flex items-center justify-center text-cyber-blue text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-network-wired"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Software Gateways & Firewalls</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        High-performance kernel-level packet inspection, virtual routing, and stateful firewalls operating without bulky hardware appliances.
-                    </p>
-                    <ul class="space-y-2 font-mono text-xs text-gray-300">
-                        <li><i class="fa-solid fa-check text-cyber-blue mr-2"></i>NXTFW Kernel Packet Filtering</li>
-                        <li><i class="fa-solid fa-check text-cyber-blue mr-2"></i>NXTGTW Virtual Gateways</li>
-                        <li><i class="fa-solid fa-check text-cyber-blue mr-2"></i>NXTVPN WireGuard Mesh</li>
-                    </ul>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="p-8 rounded-2xl bg-cyber-900/60 border border-cyber-800 glow-box-hover transition-all group">
-                    <div class="w-14 h-14 rounded-xl bg-cyber-emerald/10 border border-cyber-emerald/30 flex items-center justify-center text-cyber-emerald text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-shield-virus"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">SIEM & Threat Detection Ops</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Real-time log ingestion, behavioral host monitoring, and continuous threat mitigation playbooks engineered to block attacks dynamically.
-                    </p>
-                    <ul class="space-y-2 font-mono text-xs text-gray-300">
-                        <li><i class="fa-solid fa-check text-cyber-emerald mr-2"></i>NXTSIEM Analytics Engine</li>
-                        <li><i class="fa-solid fa-check text-cyber-emerald mr-2"></i>NXTDR Behavioral Host Agent</li>
-                        <li><i class="fa-solid fa-check text-cyber-emerald mr-2"></i>NXTSM Ticket Workflows</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 3: SAMSE Enterprise Product Suite -->
-    <section id="products" class="py-24 border-b border-cyber-800/80 bg-cyber-900/40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest block mb-2">// ENTERPRISE INNOVATION ROADMAP</span>
-                <h2 class="text-3xl font-extrabold text-white mb-4">SAMSE Product Suite</h2>
-                <p class="text-gray-400">Our complete ecosystem of hardware-free security tools, gateways, and centralized management controls.</p>
-            </div>
-
-            <!-- Featured Orchestrator Card: NXTMGR -->
-            <div class="mb-10 p-8 rounded-2xl bg-gradient-to-r from-cyber-900 via-cyber-900/90 to-cyber-950 border border-cyber-cyan/40 glow-box relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 text-cyber-cyan/5 text-9xl font-mono font-black select-none pointer-events-none">
-                    NXTMGR
-                </div>
-                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
-                    <div class="max-w-2xl">
-                        <div class="flex items-center space-x-3 mb-3">
-                            <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/40 text-cyber-cyan font-mono text-xs uppercase font-bold">Unified Management Console</span>
-                            <span class="px-3 py-1 rounded-full bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald font-mono text-xs">Core Platform</span>
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-2">NXTMGR <span class="text-gray-400 font-normal text-lg">(Security Manager)</span></h3>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            The central administrative command station designed to manage, monitor, and configure all SAMSE modules (`NXTFW`, `NXTGTW`, `NXTSIEM`, `NXTDR`, `NXTSM`, and `NXTVPN`) from a single intuitive web console.
-                        </p>
-                        <div class="flex flex-wrap gap-4 font-mono text-xs text-gray-400">
-                            <span><i class="fa-solid fa-check text-cyber-cyan mr-1"></i> Single Sign-On Access</span>
-                            <span><i class="fa-solid fa-check text-cyber-cyan mr-1"></i> Real-Time Rule Distribution</span>
-                            <span><i class="fa-solid fa-check text-cyber-cyan mr-1"></i> Cross-Tool Telemetry Aggregation</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold hover:opacity-90 transition-opacity text-sm font-mono whitespace-nowrap shadow-md">
-                        Request NXTMGR Demo
-                    </a>
-                </div>
-            </div>
-
-            <!-- Product Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product 1: NXTFW -->
-                <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-3 py-1 rounded-full bg-cyber-amber/10 border border-cyber-amber/30 text-cyber-amber font-mono text-xs">In Preparation</span>
-                            <i class="fa-solid fa-shield text-cyber-cyan text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">NXTFW</h3>
-                        <p class="text-xs font-mono text-cyber-cyan mb-3">Software Firewall</p>
-                        <p class="text-gray-400 text-sm mb-6">High-speed kernel-level packet inspection firewall managed dynamically via NXTMGR console.</p>
-                    </div>
-                    <div class="pt-4 border-t border-cyber-800 font-mono text-xs text-gray-400 flex items-center justify-between">
-                        <span>Managed by: NXTMGR</span>
-                        <span class="text-cyber-cyan">Ready</span>
-                    </div>
-                </div>
-
-                <!-- Product 2: NXTGTW -->
-                <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="px-3 py-1 rounded-full bg-cyber-amber/10 border border-cyber-amber/30 text-cyber-amber font-mono text-xs">In Preparation</span>
-                            <i class="fa-solid fa-route text-cyber-blue text-xl"></i>
-                     
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    </script>
+</body>
+</html>
