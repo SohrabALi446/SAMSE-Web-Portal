@@ -5,88 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact SAMSE - Secure Consultation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981' } } } } }</script>
+    <script>
+        tailwind.config = { 
+            darkMode: 'class', 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        cyber: { 
+                            950: '#030712', 900: '#0b0f19', 800: '#111827', 
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981' 
+                        } 
+                    } 
+                } 
+            } 
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>.matrix-bg { background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px); background-size: 40px 40px; } .glow-box { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); }</style>
+    <style>
+        .matrix-bg { 
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px); 
+            background-size: 40px 40px; 
+            background-position: 0 0, 20px 20px;
+        } 
+        .glow-box { 
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); 
+        }
+    </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col">
+<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col antialiased">
+    
     <!-- Navbar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl"><i class="fa-solid fa-shield-halved"></i></div>
-                <span class="text-xl font-black text-white">SAMSE</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-cyber-cyan/20">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-blue bg-clip-text text-transparent">SAMSE</span>
+                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
+                </div>
             </a>
+            
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="../index.html" class="text-gray-300 hover:text-cyber-cyan">Home</a>
-                <a href="../about.html" class="text-gray-300 hover:text-cyber-cyan">About</a>
-                <a href="../services.html" class="text-gray-300 hover:text-cyber-cyan">Services</a>
-                <a href="../products.html" class="text-gray-300 hover:text-cyber-cyan">Product Suite</a>
-                <a href="../contact.html" class="text-cyber-cyan font-semibold">Contact</a>
+                <a href="index.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Services</a>
+                <a href="products.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Product Suite</a>
+                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan transition-all font-mono text-xs uppercase tracking-wider">Contact</a>
             </nav>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-gray-300 hover:text-cyber-cyan focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cyber-900 border-b border-cyber-800 px-4 pt-2 pb-4 space-y-3 font-medium">
+            <a href="index.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Home</a>
+            <a href="about.html" class="block text-gray-300 hover:text-cyber-cyan py-1">About</a>
+            <a href="services.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Services</a>
+            <a href="products.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Product Suite</a>
+            <a href="contact.html" class="block text-cyber-cyan font-mono uppercase text-xs py-1">Contact</a>
         </div>
     </header>
 
+    <!-- Main Form Area -->
     <main class="flex-grow py-20 px-4 max-w-4xl mx-auto w-full">
         <div class="text-center mb-16">
-            <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest block mb-2">// SECURE INQUIRY</span>
+            <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 inline-block mb-3">
+                // SECURE INQUIRY
+            </span>
             <h1 class="text-4xl font-extrabold text-white mb-4">Initialize Consultation</h1>
-            <p class="text-gray-400">Connect with SAMSE engineers for security posture evaluations or product suite access.</p>
+            <p class="text-gray-400 text-sm sm:text-base">Connect with SAMSE engineers for security posture evaluations or product suite access.</p>
         </div>
 
-        <div class="p-8 sm:p-12 rounded-3xl bg-cyber-900 border border-cyber-800 glow-box">
+        <div class="p-8 sm:p-12 rounded-3xl bg-cyber-900/90 border border-cyber-800 glow-box backdrop-blur-xl">
             <form id="contact-form" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block font-mono text-xs text-gray-300 uppercase mb-2">Your Name</label>
-                        <input type="text" required class="w-full bg-cyber-950 border border-cyber-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan" placeholder="Sohrab Ansari">
+                        <input type="text" required class="w-full bg-cyber-950 border border-cyber-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan transition-colors" placeholder="Sohrab Ansari">
                     </div>
                     <div>
                         <label class="block font-mono text-xs text-gray-300 uppercase mb-2">Corporate Email</label>
-                        <input type="email" required class="w-full bg-cyber-950 border border-cyber-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan" placeholder="sohrab@samse.security">
+                        <input type="email" required class="w-full bg-cyber-950 border border-cyber-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan transition-colors" placeholder="sohrab@samse.security">
                     </div>
                 </div>
+                
                 <div>
                     <label class="block font-mono text-xs text-gray-300 uppercase mb-2">Inquiry Focus / Product Interest</label>
-                    <select class="w-full bg-cyber-950 border border-cyber-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan">
+                    <select class="w-full bg-cyber-950 border border-cyber-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan transition-colors font-mono text-sm">
                         <option>NXTMGR (Central Management Console)</option>
                         <option>NXTFW (Software Firewall)</option>
                         <option>NXTGTW (Software Gateway)</option>
                         <option>NXTSIEM (Log Analytics)</option>
                         <option>NXTDR (Endpoint Detection)</option>
+                        <option>NXTScan (Vulnerability Assessment & Auditing)</option>
                         <option>NXTSM (ITSM Workflow)</option>
                         <option>NXTVPN (Secure Cryptotunnel)</option>
                         <option>General Security Architecture Consultation</option>
                     </select>
                 </div>
+
                 <div>
                     <label class="block font-mono text-xs text-gray-300 uppercase mb-2">Message / Specifications</label>
-                    <textarea rows="4" required class="w-full bg-cyber-950 border border-cyber-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan" placeholder="Describe your environment or requirements..."></textarea>
+                    <textarea rows="4" required class="w-full bg-cyber-950 border border-cyber-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyber-cyan transition-colors" placeholder="Describe your environment or requirements..."></textarea>
                 </div>
+
                 <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/25 flex items-center justify-center space-x-2 font-mono uppercase text-sm tracking-wider">
                     <i class="fa-solid fa-paper-plane"></i>
                     <span>Transmit Secure Inquiry</span>
                 </button>
             </form>
-            <div id="form-success" class="hidden mt-6 p-4 rounded-xl bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald text-center font-mono text-sm">
+
+            <div id="form-success" class="hidden mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-center font-mono text-sm">
                 <i class="fa-solid fa-check-circle mr-2"></i> Inquiry transmitted securely. A SAMSE engineer will reach out shortly.
             </div>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
         &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
     </footer>
 
+    <!-- Scripts -->
     <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        }
+
         const contactForm = document.getElementById('contact-form');
         const formSuccess = document.getElementById('form-success');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            contactForm.reset();
-            formSuccess.classList.remove('hidden');
-            setTimeout(() => { formSuccess.classList.add('hidden'); }, 6000);
-        });
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                contactForm.reset();
+                formSuccess.classList.remove('hidden');
+                setTimeout(() => { formSuccess.classList.add('hidden'); }, 6000);
+            });
+        }
     </script>
 </body>
 </html>
