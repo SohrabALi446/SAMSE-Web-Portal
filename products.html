@@ -3,49 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Suite - SAMSE</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Product Suite - SAMSE Security</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        cyber: {
-                            950: '#030712',
-                            900: '#0b0f19',
-                            800: '#111827',
-                            700: '#1f2937',
-                            cyan: '#06b6d4',
-                            blue: '#3b82f6',
-                            emerald: '#10b981',
-                            amber: '#f59e0b',
-                            rose: '#f43f5e'
-                        }
-                    },
-                    fontFamily: {
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
-                    }
-                }
-            }
+        tailwind.config = { 
+            darkMode: 'class', 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        cyber: { 
+                            950: '#030712', 900: '#0b0f19', 800: '#111827', 
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b' 
+                        } 
+                    } 
+                } 
+            } 
         }
     </script>
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .matrix-bg {
-            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px);
-            background-size: 40px 40px;
+        .matrix-bg { 
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px); 
+            background-size: 40px 40px; 
             background-position: 0 0, 20px 20px;
+        } 
+        .glow-box { 
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); 
         }
-        .glow-box { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); }
-        .glow-box-hover:hover { box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3); }
+        .glow-box-beta { 
+            box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.25); 
+        }
     </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-950 matrix-bg min-h-screen flex flex-col">
-
-    <!-- Top Navigation -->
+<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col antialiased">
+    
+    <!-- Navbar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center space-x-3">
@@ -62,8 +54,8 @@
                 <a href="index.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Home</a>
                 <a href="about.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">About</a>
                 <a href="services.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Services</a>
-                <a href="products.html" class="text-cyber-cyan font-semibold">Product Suite</a>
-                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all font-mono text-xs uppercase tracking-wider">Contact</a>
+                <a href="products.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan transition-all font-mono text-xs uppercase tracking-wider">Product Suite</a>
+                <a href="contact.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Contact</a>
             </nav>
 
             <div class="md:hidden flex items-center">
@@ -77,156 +69,165 @@
             <a href="index.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Home</a>
             <a href="about.html" class="block text-gray-300 hover:text-cyber-cyan py-1">About</a>
             <a href="services.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Services</a>
-            <a href="products.html" class="block text-cyber-cyan py-1">Product Suite</a>
-            <a href="contact.html" class="block text-cyber-cyan py-1 font-mono uppercase text-xs">Contact</a>
+            <a href="products.html" class="block text-cyber-cyan font-mono uppercase text-xs py-1">Product Suite</a>
+            <a href="contact.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Contact</a>
         </div>
     </header>
 
-    <main class="flex-grow py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest block mb-2">// ENTERPRISE INNOVATION ROADMAP</span>
-            <h1 class="text-4xl font-extrabold text-white mb-4">SAMSE Product Suite</h1>
-            <p class="text-gray-400">Hardware-free, software-defined security tools engineered for virtual cloud infrastructure. Select any tool to inspect full technical specs and development status.</p>
+    <!-- Main Content Area -->
+    <main class="flex-grow py-20 px-4 max-w-7xl mx-auto w-full">
+        <div class="text-center mb-16">
+            <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 inline-block mb-3">
+                // ENTERPRISE ARSENAL
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">SAMSE Product Suite</h1>
+            <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto">Engineered for high-performance security operations, threat detection, and comprehensive infrastructure administration.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 1. NXTMGR (Core Platform) -->
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+        <!-- HIGHLIGHTED PRODUCT: NXTSIEM (Beta Testing Available) -->
+        <div class="mb-12 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-cyber-900 via-cyber-900 to-amber-950/30 border-2 border-amber-500/50 glow-box-beta relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-amber-500 text-cyber-950 font-mono text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider flex items-center space-x-1.5 shadow-lg">
+                <i class="fa-solid fa-flask"></i>
+                <span>Beta Testing Available</span>
+            </div>
+            
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div class="max-w-3xl">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl font-bold">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <span class="text-amber-400 font-mono text-xs tracking-widest uppercase">// FLAGSHIPS SIEM ENGINE</span>
+                            <h2 class="text-2xl sm:text-3xl font-black text-white">NXTSIEM (Log Analytics & Threat Hunting)</h2>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+                        Advanced Security Information and Event Management platform featuring automated log parsing, correlation rule tuning, MITRE ATT&CK mapping, and real-time anomaly detection. Access the limited preview beta program to test next-gen telemetry integration in your environment.
+                    </p>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs text-amber-300/80">
+                        <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#LogIngestion</span>
+                        <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#RuleTuning</span>
+                        <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#ThreatHunting</span>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row md:flex-col gap-3 min-w-[200px]">
+                    <a href="contact.html" class="py-3 px-6 rounded-xl bg-amber-500 text-cyber-950 font-extrabold hover:bg-amber-400 transition-colors text-center font-mono text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                        <span>Join Beta Program</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Standard Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- NXTMGR -->
+            <div class="p-6 rounded-2xl bg-cyber-900/90 border border-cyber-800 glow-box flex flex-col justify-between hover:border-cyber-cyan/50 transition-all">
                 <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">Core Platform</span>
-                        <i class="fa-solid fa-sliders text-cyber-cyan text-xl"></i>
+                    <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-4">
+                        <i class="fa-solid fa-network-wired"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">NXTMGR</h3>
-                    <p class="text-xs font-mono text-cyber-cyan mb-3">Security Manager Console</p>
-                    <p class="text-gray-400 text-sm mb-6">Central administrative command station to manage, monitor, and configure all SAMSE tools from a single web dashboard.</p>
+                    <p class="text-gray-400 text-sm mb-6">Centralized management console providing unified command, policy enforcement, and node orchestration across distributed network topologies.</p>
                 </div>
-                <a href="products/nxtmgr.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+                <a href="contact.html" class="inline-flex items-center space-x-2 text-cyber-cyan font-mono text-xs uppercase hover:underline">
+                    <span>Request Access</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
 
-            <!-- 2. NXTFW (In Preparation) -->
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+            <!-- NXTFW -->
+            <div class="p-6 rounded-2xl bg-cyber-900/90 border border-cyber-800 glow-box flex flex-col justify-between hover:border-cyber-cyan/50 transition-all">
                 <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-cyber-amber/10 border border-cyber-amber/30 text-cyber-amber font-mono text-xs">In Preparation</span>
-                        <i class="fa-solid fa-shield text-cyber-cyan text-xl"></i>
+                    <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-4">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">NXTFW</h3>
-                    <p class="text-xs font-mono text-cyber-cyan mb-3">Software Firewall</p>
-                    <p class="text-gray-400 text-sm mb-6">High-speed kernel-level packet inspection firewall requiring zero dedicated hardware appliances.</p>
+                    <p class="text-gray-400 text-sm mb-6">High-throughput software firewall with deep packet inspection, stateful filtering, and zero-trust perimeter defense capabilities.</p>
                 </div>
-                <a href="products/nxtfw.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+                <a href="contact.html" class="inline-flex items-center space-x-2 text-cyber-cyan font-mono text-xs uppercase hover:underline">
+                    <span>Request Access</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
 
-            <!-- 3. NXTGTW (In Preparation) -->
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+            <!-- NXTGTW -->
+            <div class="p-6 rounded-2xl bg-cyber-900/90 border border-cyber-800 glow-box flex flex-col justify-between hover:border-cyber-cyan/50 transition-all">
                 <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-cyber-amber/10 border border-cyber-amber/30 text-cyber-amber font-mono text-xs">In Preparation</span>
-                        <i class="fa-solid fa-route text-cyber-blue text-xl"></i>
+                    <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-4">
+                        <i class="fa-solid fa-gateway"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">NXTGTW</h3>
-                    <p class="text-xs font-mono text-cyber-blue mb-3">Software Gateway</p>
-                    <p class="text-gray-400 text-sm mb-6">Enterprise routing and secure traffic transit gateway deployable instantly on virtual cloud instances.</p>
+                    <p class="text-gray-400 text-sm mb-6">Secure enterprise software gateway ensuring encrypted traffic inspection and proxy routing for multi-cloud deployments.</p>
                 </div>
-                <a href="products/nxtgtw.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+                <a href="contact.html" class="inline-flex items-center space-x-2 text-cyber-cyan font-mono text-xs uppercase hover:underline">
+                    <span>Request Access</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
 
-            <!-- 4. NXTSIEM (Under Development) -->
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+            <!-- NXTDR -->
+            <div class="p-6 rounded-2xl bg-cyber-900/90 border border-cyber-800 glow-box flex flex-col justify-between hover:border-cyber-cyan/50 transition-all">
                 <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">Under Development</span>
-                        <i class="fa-solid fa-chart-line text-cyber-cyan text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">NXTSIEM</h3>
-                    <p class="text-xs font-mono text-cyber-cyan mb-3">Security Analytics SIEM</p>
-                    <p class="text-gray-400 text-sm mb-6">Lightweight centralized log collector and threat correlation engine with real-time telemetry streaming.</p>
-                </div>
-                <a href="products/nxtsiem.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
-            </div>
-
-            <!-- 5. NXTDR (Under Development) -->
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
-                <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">Under Development</span>
-                        <i class="fa-solid fa-bug-slash text-cyber-cyan text-xl"></i>
+                    <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-4">
+                        <i class="fa-solid fa-radar"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">NXTDR</h3>
-                    <p class="text-xs font-mono text-cyber-cyan mb-3">Endpoint Detection & Response</p>
-                    <p class="text-gray-400 text-sm mb-6">Low-overhead host agent monitoring process trees, file integrity, and behavioral system anomaly alerts.</p>
+                    <p class="text-gray-400 text-sm mb-6">Endpoint detection and response agent engineered for real-time threat neutralization and behavioral process monitoring.</p>
                 </div>
-                <a href="products/nxtdr.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+                <a href="contact.html" class="inline-flex items-center space-x-2 text-cyber-cyan font-mono text-xs uppercase hover:underline">
+                    <span>Request Access</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
 
-            <!-- 6. NXTSCAN (Planning) -->
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+            <!-- NXTScan -->
+            <div class="p-6 rounded-2xl bg-cyber-900/90 border border-cyber-800 glow-box flex flex-col justify-between hover:border-cyber-cyan/50 transition-all">
                 <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs">Planning</span>
-                        <i class="fa-solid fa-radar text-purple-400 text-xl"></i>
+                    <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-4">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">NXTSCAN</h3>
-                    <p class="text-xs font-mono text-purple-400 mb-3">Vulnerability Management</p>
-                    <p class="text-gray-400 text-sm mb-6">Automated vulnerability scanner and posture assessment engine for cloud and on-premise infrastructure.</p>
+                    <h3 class="text-xl font-bold text-white mb-2">NXTScan</h3>
+                    <p class="text-gray-400 text-sm mb-6">Automated vulnerability assessment and security auditing suite configured for continuous compliance and asset discovery.</p>
                 </div>
-                <a href="products/nxtscan.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+                <a href="contact.html" class="inline-flex items-center space-x-2 text-cyber-cyan font-mono text-xs uppercase hover:underline">
+                    <span>Request Access</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
 
-            <!-- 7. NXTSM (Planning) -->
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
+            <!-- NXTSM -->
+            <div class="p-6 rounded-2xl bg-cyber-900/90 border border-cyber-800 glow-box flex flex-col justify-between hover:border-cyber-cyan/50 transition-all">
                 <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs">Planning</span>
-                        <i class="fa-solid fa-ticket text-purple-400 text-xl"></i>
+                    <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-4">
+                        <i class="fa-solid fa-ticket"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">NXTSM</h3>
-                    <p class="text-xs font-mono text-purple-400 mb-3">IT Service Management</p>
-                    <p class="text-gray-400 text-sm mb-6">Streamlined incident ticketing, asset tracking, and automated workflow change management.</p>
+                    <p class="text-gray-400 text-sm mb-6">ITSM workflow engine designed for incident tracking, automated ticket routing, and cybersecurity task lifecycle management.</p>
                 </div>
-                <a href="products/nxtsm.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
+                <a href="contact.html" class="inline-flex items-center space-x-2 text-cyber-cyan font-mono text-xs uppercase hover:underline">
+                    <span>Request Access</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
 
-            <!-- 8. NXTVPN (Planning) -->
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 flex flex-col justify-between glow-box-hover">
-                <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs">Planning</span>
-                        <i class="fa-solid fa-lock text-purple-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">NXTVPN</h3>
-                    <p class="text-xs font-mono text-purple-400 mb-3">Secure Cryptotunnel VPN</p>
-                    <p class="text-gray-400 text-sm mb-6">Zero-trust cryptographic mesh VPN gateway providing secure remote connectivity without hardware boxes.</p>
-                </div>
-                <a href="products/nxtvpn.html" class="w-full py-2.5 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all text-center font-mono text-xs font-bold uppercase">View Full Details &rarr;</a>
-            </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg bg-cyber-cyan flex items-center justify-center text-cyber-950 font-bold">
-                    <i class="fa-solid fa-shield-halved text-sm"></i>
-                </div>
-                <span class="font-black tracking-wider text-white">SAMSE</span>
-            </div>
-            <p class="text-xs font-mono text-gray-500 text-center">
-                &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
-            </p>
-            <div class="flex space-x-6 text-gray-400">
-                <a href="https://github.com/SohrabALi446/SAMSE-Web-Portal" target="_blank" class="hover:text-cyber-cyan transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
-                <a href="contact.html" class="hover:text-cyber-cyan transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
-            </div>
-        </div>
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
+        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
     </footer>
 
+    <!-- Scripts -->
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        }
     </script>
 </body>
 </html>
