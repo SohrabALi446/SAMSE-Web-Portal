@@ -6,43 +6,59 @@
     <title>SAMSE - Software Administration & Modern Security Engineering</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { 
-            darkMode: 'class', 
-            theme: { 
-                extend: { 
-                    colors: { 
-                        cyber: { 
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
                             950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
-                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', purple: '#a855f7' 
-                        } 
-                    } 
-                } 
-            } 
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', rose: '#f43f5e'
+                        },
+                        brand: {
+                            bg: '#030712',
+                            border: 'rgba(6, 182, 212, 0.2)',
+                            neon: '#06b6d4',
+                            accent: '#3b82f6',
+                            amber: '#f59e0b',
+                            alert: '#f43f5e'
+                        }
+                    },
+                    fontFamily: { mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'] }
+                }
+            }
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .matrix-bg { 
-            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px); 
-            background-size: 40px 40px; 
-            background-position: 0 0, 20px 20px;
-        } 
-        .glow-box { 
-            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); 
+        .matrix-bg {
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px);
+            background-size: 40px 40px; background-position: 0 0, 20px 20px;
         }
-        .glow-box-beta { 
-            box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.25); 
-        }
+        .glow-box { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); }
+        .glow-box-hover:hover { box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3); }
         .glass-panel {
-            background: rgba(11, 15, 25, 0.85);
+            background: rgba(17, 24, 39, 0.7);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(6, 182, 212, 0.15);
         }
+        .cyber-border {
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+        }
     </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col antialiased">
-    
-    <!-- Navbar -->
+<body class="bg-cyber-950 text-gray-100 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-950 matrix-bg min-h-screen flex flex-col">
+    <!-- Top Announcement Ribbon -->
+    <div class="bg-gradient-to-r from-brand-bg via-slate-900 to-brand-bg border-b border-brand-border py-2 text-center text-xs font-mono text-slate-300 px-4">
+        <span class="inline-block w-2 h-2 rounded-full bg-brand-neon animate-pulse mr-2"></span>
+        <span class="font-semibold text-brand-neon">SAMSE ANNOUNCEMENT:</span> Enterprise Security Suite Product Lineup (NXTSIEM, NXTDR, NXTSM, NXTVPN) Announced.
+    </div>
+
+    <!-- Top Navigation -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center space-x-3">
@@ -56,11 +72,11 @@
             </a>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="index.html" class="text-cyber-cyan transition-colors font-mono uppercase text-xs">Home</a>
+                <a href="index.html" class="text-cyber-cyan font-semibold">Home</a>
                 <a href="about.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">About</a>
                 <a href="services.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Services</a>
                 <a href="products.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Product Suite</a>
-                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan transition-all font-mono text-xs uppercase tracking-wider">Contact</a>
+                <a href="contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 transition-all font-mono text-xs uppercase tracking-wider">Contact</a>
             </nav>
 
             <div class="md:hidden flex items-center">
@@ -71,189 +87,542 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-cyber-900 border-b border-cyber-800 px-4 pt-2 pb-4 space-y-3 font-medium">
-            <a href="index.html" class="block text-cyber-cyan font-mono uppercase text-xs py-1">Home</a>
+            <a href="index.html" class="block text-cyber-cyan py-1">Home</a>
             <a href="about.html" class="block text-gray-300 hover:text-cyber-cyan py-1">About</a>
             <a href="services.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Services</a>
             <a href="products.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Product Suite</a>
-            <a href="contact.html" class="block text-gray-300 hover:text-cyber-cyan py-1">Contact</a>
+            <a href="contact.html" class="block text-cyber-cyan py-1 font-mono uppercase text-xs">Contact</a>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow py-12 px-4 max-w-7xl mx-auto w-full space-y-16">
-        
-        <!-- Hero Section -->
-        <div class="text-center max-w-4xl mx-auto space-y-6">
-            <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 inline-block">
-                // ENTERPRISE CYBER DEFENSE & OPERATIONS
-            </span>
-            <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-                Software Administration & Modern Security Engineering
-            </h1>
-            <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                SAMSE delivers high-throughput security tools, log analytics, continuous vulnerability auditing, and automated incident response for modern IT infrastructure.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-2">
-                <a href="products.html" class="py-3.5 px-8 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-extrabold font-mono text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/25">
-                    Explore Product Suite
-                </a>
-                <a href="contact.html" class="py-3.5 px-8 rounded-xl bg-cyber-900 border border-cyber-800 text-gray-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-colors">
-                    Initialize Consultation
-                </a>
-            </div>
-        </div>
-
-        <!-- CORPORATE HERO IMAGE BANNER -->
-        <div class="relative rounded-3xl overflow-hidden border border-cyber-cyan/30 glow-box bg-cyber-900/80">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80" alt="SAMSE Security Operations Center" class="w-full h-72 sm:h-96 object-cover opacity-75 hover:opacity-90 transition-opacity">
-            <div class="absolute inset-0 bg-gradient-to-t from-cyber-950 via-cyber-950/40 to-transparent flex items-end p-6 sm:p-8">
-                <div class="flex items-center justify-between w-full flex-wrap gap-4">
-                    <div>
-                        <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest">// GLOBAL INFRASTRUCTURE DEFENSE</span>
-                        <h3 class="text-white font-black text-lg sm:text-2xl">Enterprise-Grade Security Operations & Threat Orchestration</h3>
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-20 overflow-hidden border-b border-cyber-800/80 flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7 text-left space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-mono">
+                        <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-pulse"></span>
+                        <span>SYSTEM STATUS: ALL SECURITY NODES OPERATIONAL</span>
                     </div>
-                    <span class="px-3 py-1.5 rounded-lg bg-cyber-cyan/20 border border-cyber-cyan/40 text-cyber-cyan font-mono text-xs">
-                        24/7 Telemetry Active
-                    </span>
-                </div>
-            </div>
-        </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                        SAMSE: Software Administration <br>
+                        <span class="bg-gradient-to-r from-cyber-cyan via-blue-400 to-cyber-blue bg-clip-text text-transparent">and Modern Security Engineering</span>
+                    </h1>
+                    
+                    <p class="text-base text-gray-400 max-w-2xl">
+                        Architecting elite enterprise security posture, hardware-free software firewalls, autonomous threat hunting engines, and centralized management portals across modern digital infrastructures.
+                    </p>
 
-        <!-- HOMEPAGE HIGHLIGHT: NXTSIEM BETA TESTING BANNER -->
-        <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-cyber-900 via-cyber-900 to-amber-950/40 border-2 border-amber-500/50 glow-box-beta relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-amber-500 text-cyber-950 font-mono text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider flex items-center space-x-1.5 shadow-lg">
-                <i class="fa-solid fa-flask"></i>
-                <span>Beta Testing Program Active</span>
-            </div>
-            
-            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                <div class="max-w-3xl space-y-3">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl font-bold">
-                            <i class="fa-solid fa-chart-line"></i>
+                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-2">
+                        <a href="products.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/25 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-box-archive"></i>
+                            <span>Explore Product Suite</span>
+                        </a>
+                        <a href="contact.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-cyber-900 border border-cyber-700 text-gray-200 hover:border-cyber-cyan transition-all font-mono text-sm flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-terminal text-cyber-cyan"></i>
+                            <span>Initialize Consultation</span>
+                        </a>
+                    </div>
+
+                    <!-- Stats Highlights -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80">
+                        <div>
+                            <p class="text-xl sm:text-2xl font-bold font-mono text-brand-neon">0 Dedicated</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Hardware Requirement</p>
                         </div>
                         <div>
-                            <span class="text-amber-400 font-mono text-xs tracking-widest uppercase">// FLAGSHIP PREVIEW</span>
-                            <h2 class="text-2xl sm:text-3xl font-black text-white">NXTSIEM (Log Analytics & Threat Engine)</h2>
+                            <p class="text-xl sm:text-2xl font-bold font-mono text-brand-accent">NXT Product</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Ecosystem Underway</p>
+                        </div>
+                        <div>
+                            <p class="text-xl sm:text-2xl font-bold font-mono text-purple-400">Zero-Trust</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Administration Baseline</p>
                         </div>
                     </div>
-                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                        Test SAMSE's lightweight, zero-volume tax SIEM solution. Features high-speed Syslog ingestion, custom rule correlation, MITRE ATT&CK mapping, and automated host isolation via <strong class="text-white">NXTMGR</strong>.
-                    </p>
-                    <div class="flex flex-wrap gap-2 font-mono text-xs text-amber-300/80">
-                        <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#LogIngestion</span>
-                        <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#PredictableScaling</span>
-                        <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#ThreatHunting</span>
+                </div>
+
+                <!-- Right Hero Component: Terminal & Corporate Visual -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- Terminal Container -->
+                    <div class="glass-panel rounded-xl p-5 shadow-2xl relative cyber-border">
+                        <!-- Terminal Header -->
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                <span class="text-xs font-mono text-slate-400 ml-2">SAMSE-ENGINE-KERNEL</span>
+                            </div>
+                            <span class="text-[10px] font-mono text-brand-neon px-2 py-0.5 rounded bg-brand-neon/10 border border-brand-neon/30">ONLINE</span>
+                        </div>
+
+                        <!-- Terminal Content -->
+                        <div class="font-mono text-xs space-y-2 h-48 overflow-y-auto pr-1" id="heroLogContainer">
+                            <div class="text-brand-neon">[INIT] SAMSE Engine initialized.</div>
+                            <div class="text-emerald-400">[PRODUCT] NXTSIEM (Security Information & Event Management) -&gt; Status: UNDER DEVELOPMENT</div>
+                            <div class="text-emerald-400">[PRODUCT] NXTDR (Endpoint Detection & Response) -&gt; Status: UNDER DEVELOPMENT</div>
+                            <div class="text-amber-400">[PRODUCT] NXTSM (IT Service Management) -&gt; Status: PLANNING</div>
+                            <div class="text-amber-400">[PRODUCT] NXTVPN (Zero Trust Encrypted Access) -&gt; Status: PLANNING</div>
+                            <div class="text-purple-400">[LIGHTWEIGHT] Toolsuite optimization: No dedicated hardware required.</div>
+                            <div class="text-slate-400">[STATUS] All administration protocols active and listening...</div>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+                            <div class="flex items-center gap-2 text-slate-400">
+                                <i class="fa-solid fa-microchip text-brand-neon"></i>
+                                <span>Deployment: <span class="text-brand-neon">Hardware-Free</span></span>
+                            </div>
+                            <button onclick="clearHeroTerminal()" class="text-slate-500 hover:text-slate-300 text-[11px] underline">Reset Console</button>
+                        </div>
+                    </div>
+
+                    <!-- HERO IMAGE CARD -->
+                    <div class="relative rounded-xl overflow-hidden border border-cyber-cyan/30 glow-box bg-cyber-900/80">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="SAMSE Cyber Infrastructure Control Room" class="w-full h-36 object-cover opacity-70 hover:opacity-90 transition-opacity">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-950 via-cyber-950/20 to-transparent flex items-end p-3">
+                            <div class="flex items-center justify-between w-full">
+                                <span class="text-cyber-cyan font-mono text-[11px] uppercase tracking-wider">// GLOBAL SECURITY OPS CENTER</span>
+                                <span class="text-slate-400 font-mono text-[10px]">24/7 ACTIVE TELEMETRY</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="flex flex-col sm:flex-row lg:flex-col gap-3 min-w-[220px]">
-                    <a href="products/nxtsiem.html" class="py-3.5 px-6 rounded-xl bg-amber-500 text-cyber-950 font-extrabold hover:bg-amber-400 transition-colors text-center font-mono text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-flask"></i>
-                        <span>Explore Beta Details</span>
-                    </a>
-                    <a href="contact.html" class="py-3 px-6 rounded-xl bg-cyber-950 border border-amber-500/40 text-amber-400 font-bold hover:bg-amber-500/10 transition-colors text-center font-mono text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>Apply for Early Access</span>
-                    </a>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ABOUT SAMSE SECTION -->
+    <section id="about" class="py-20 bg-slate-950/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-neon/10 border border-brand-neon/30 text-brand-neon text-xs font-mono uppercase">
+                        Company Overview
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white">
+                        About SAMSE
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        At SAMSE, we combine complex software administration operations with modern security engineering practices. We remove the burden of expensive, heavy infrastructure by designing tools that operate efficiently in the cloud or across existing enterprise environments without requiring proprietary, dedicated hardware.
+                    </p>
+
+                    <!-- ABOUT SECTION IMAGE CARD -->
+                    <div class="relative rounded-xl overflow-hidden border border-cyber-cyan/30 glow-box bg-cyber-900/80 my-4">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="Software Administration and Analytics Dashboard" class="w-full h-44 object-cover opacity-75 hover:opacity-95 transition-opacity">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-950 via-transparent to-transparent flex items-end p-3">
+                            <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest">// SOFTWARE ADMINISTRATION & THREAT ANALYTICS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-lg glass-panel border border-slate-800">
+                            <i class="fa-solid fa-screwdriver-wrench text-brand-neon text-xl mb-2"></i>
+                            <h3 class="font-bold text-white text-sm">Software Administration</h3>
+                            <p class="text-slate-400 text-xs mt-1">End-to-end management of software lifecycles, configuration auditing, and automation.</p>
+                        </div>
+                        <div class="p-4 rounded-lg glass-panel border border-slate-800">
+                            <i class="fa-solid fa-shield-halved text-brand-accent text-xl mb-2"></i>
+                            <h3 class="font-bold text-white text-sm">Modern Security Engineering</h3>
+                            <p class="text-slate-400 text-xs mt-1">Next-gen threat detection, lightweight endpoint monitoring, and zero-trust engineering.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="glass-panel p-8 rounded-2xl relative border border-brand-border">
+                        <h3 class="text-lg font-bold text-white mb-4 font-mono text-center border-b border-slate-800 pb-3">
+                            SAMSE Core Architectural Pillars
+                        </h3>
+                        <div class="space-y-4 font-mono text-xs">
+                            <div class="flex items-start gap-3 p-3 rounded bg-slate-900/80 border border-slate-800">
+                                <span class="px-2 py-1 bg-brand-neon/20 text-brand-neon font-bold rounded">01</span>
+                                <div>
+                                    <span class="text-white font-bold block">Zero Hardware Overhead</span>
+                                    <span class="text-slate-400">All tools engineered to run natively on cloud/virtualized instances without dedicated appliance requirements.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 rounded bg-slate-900/80 border border-slate-800">
+                                <span class="px-2 py-1 bg-brand-accent/20 text-brand-accent font-bold rounded">02</span>
+                                <div>
+                                    <span class="text-white font-bold block">Integrated NXT Product Matrix</span>
+                                    <span class="text-slate-400">Interoperable product ecosystem spanning SIEM, EDR, ITSM, and Secure Zero-Trust Networking.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3 rounded bg-slate-900/80 border border-slate-800">
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 font-bold rounded">03</span>
+                                <div>
+                                    <span class="text-white font-bold block">Automated Security Operations</span>
+                                    <span class="text-slate-400">Modern security engineering designed to automate routine administration and containment protocols.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- REVISED SECTION: COST EFFECTIVENESS AGAINST ALL PEERS (NO PERCENTAGES, NO LICENSING REFERENCES) -->
-        <div class="glass-panel p-8 sm:p-12 rounded-3xl border-2 border-emerald-500/30 bg-gradient-to-br from-cyber-900 via-cyber-900 to-emerald-950/20 space-y-8">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cyber-800 pb-6">
-                <div>
-                    <span class="text-emerald-400 font-mono text-xs uppercase tracking-widest">// ARCHITECTURAL EFFICIENCY</span>
-                    <h2 class="text-2xl sm:text-4xl font-black text-white mt-1">Cost-Effective Superiority Against Industry Peers</h2>
-                </div>
-                <div class="inline-flex items-center space-x-2 bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 px-4 py-2 rounded-xl font-mono text-xs font-bold w-fit">
-                    <i class="fa-solid fa-piggy-bank"></i>
-                    <span>Optimized Resource Overhead</span>
+    <!-- SERVICES & ADMIN OPERATIONS SECTION -->
+    <section id="services" class="py-20 bg-slate-950/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-mono font-bold tracking-widest text-brand-neon uppercase">Capabilities & Administration</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">SAMSE Engineering Services</h2>
+                <p class="text-slate-400 text-sm">
+                    Comprehensive software administration and modern security engineering designed for high-availability enterprise environments.
+                </p>
+            </div>
+
+            <!-- SERVICES SECTION FEATURED IMAGE BANNER -->
+            <div class="relative rounded-2xl overflow-hidden border border-cyber-cyan/30 glow-box bg-cyber-900/80 mb-12">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Cyber Security Data Stream Infrastructure" class="w-full h-48 sm:h-56 object-cover opacity-75 hover:opacity-90 transition-opacity">
+                <div class="absolute inset-0 bg-gradient-to-t from-cyber-950 via-cyber-950/30 to-transparent flex items-end p-6">
+                    <div class="flex justify-between items-center w-full flex-wrap gap-2">
+                        <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest">// HIGH-THROUGHPUT SYSTEM ARCHITECTURE & LOG PIPELINES</span>
+                        <span class="px-3 py-1 rounded bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">Enterprise Ready</span>
+                    </div>
                 </div>
             </div>
 
-            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                Legacy enterprise security products impose heavy operational burdens through bandwidth indexing penalties, costly infrastructure demands, and complex integration requirements. SAMSE re-engineers modern security tools to maximize efficiency without subjecting growing organizations to data-volume taxes or bloated resource requirements.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Peer Comparison 1 -->
-                <div class="p-6 rounded-2xl bg-cyber-950/80 border border-emerald-500/20 space-y-3">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">
-                        <i class="fa-solid fa-ban text-lg"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-panel p-6 rounded-xl relative hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-brand-neon/10 border border-brand-neon/40 flex items-center justify-center text-brand-neon text-xl mb-4">
+                        <i class="fa-solid fa-gears"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white">Zero Data-Volume Penalty</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Unlike traditional SIEM peers charging per Gigabyte of ingested logs, SAMSE provides predictable architecture so security telemetry can scale naturally without volume penalties.
-                    </p>
+                    <h3 class="text-lg font-bold text-white mb-2">Software Administration & Patching</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Centralized software deployment, automated patch validation, configuration compliance management, and lifecycle tracking.</p>
                 </div>
 
-                <!-- Peer Comparison 2 -->
-                <div class="p-6 rounded-2xl bg-cyber-950/80 border border-emerald-500/20 space-y-3">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">
-                        <i class="fa-solid fa-cubes-stacked text-lg"></i>
+                <div class="glass-panel p-6 rounded-xl relative hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-brand-accent/10 border border-brand-accent/40 flex items-center justify-center text-brand-accent text-xl mb-4">
+                        <i class="fa-solid fa-shield-virus"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white">Native Stack Integration</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Eliminates third-party connector tools and integration overhead by offering native inter-product communication between NXTMGR, NXTDR, and NXTFW.
-                    </p>
+                    <h3 class="text-lg font-bold text-white mb-2">SIEM Architecture & Tuning</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Parsing, rule generation, and log stream optimization preparing organizations for our upcoming NXTSIEM engine.</p>
                 </div>
 
-                <!-- Peer Comparison 3 -->
-                <div class="p-6 rounded-2xl bg-cyber-950/80 border border-emerald-500/20 space-y-3">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">
-                        <i class="fa-solid fa-microchip text-lg"></i>
+                <div class="glass-panel p-6 rounded-xl relative hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/40 flex items-center justify-center text-purple-400 text-xl mb-4">
+                        <i class="fa-solid fa-key"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white">Minimal Hardware Footprint</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Optimized C/Python engines minimize infrastructure resource requirements, reducing virtual machine memory allocation and host compute overhead.
-                    </p>
+                    <h3 class="text-lg font-bold text-white mb-2">Zero-Trust Identity Engineering</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Entra ID, Active Directory, and OAuth RBAC setup guaranteeing privilege access management across all software layers.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl relative hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-brand-amber/10 border border-brand-amber/40 flex items-center justify-center text-brand-amber text-xl mb-4">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Cloud Security Posture (CSPM)</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">AWS, Azure, and Google Cloud container hardening, Terraform security audits, and automated secret protection.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl relative hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-xl mb-4">
+                        <i class="fa-solid fa-bug-slash"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Vulnerability & Threat Mitigation</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Continuous threat hunting, vulnerability scoring, and rapid incident triage designed to seamlessly integrate with NXTDR.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl relative hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-brand-alert/10 border border-brand-alert/40 flex items-center justify-center text-brand-alert text-xl mb-4">
+                        <i class="fa-solid fa-terminal"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Custom Toolsuite Development</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">Bespoke lightweight security scripts and internal tooling developed specifically without dedicated hardware constraints.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Quick Specs Matrix -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-6 rounded-2xl bg-cyber-900/90 border border-cyber-800 glow-box">
-                <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-4">
-                    <i class="fa-solid fa-layer-group"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white mb-2">Unified Control</h3>
-                <p class="text-gray-400 text-xs leading-relaxed">Centralized management across firewalls, gateways, EDR agents, and SIEM event streams.</p>
+    <div class="section-divider"></div>
+
+    <!-- LIVE TELEMETRY / SOC THREAT MONITOR SANDBOX -->
+    <section id="telemetry" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-mono font-bold tracking-widest text-brand-neon uppercase">Live Telemetry Sandbox</span>
+                <h2 class="text-3xl font-extrabold text-white">NXTSIEM Engine Preview Console</h2>
+                <p class="text-slate-400 text-sm">
+                    Experience the real-time event processing logic powering SAMSE enterprise solutions.
+                </p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-cyber-900/90 border border-cyber-800 glow-box">
-                <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-4">
-                    <i class="fa-solid fa-shield-cat"></i>
+            <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-brand-neon/30 shadow-2xl">
+                <!-- Metrics Row -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800">
+                        <span class="text-xs font-mono text-slate-400">Injected Logs</span>
+                        <p id="statTotalLogs" class="text-2xl font-bold font-mono text-brand-neon mt-1">1,248,910</p>
+                    </div>
+                    <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800">
+                        <span class="text-xs font-mono text-slate-400">Mitigated Threats</span>
+                        <p id="statThreats" class="text-2xl font-bold font-mono text-emerald-400 mt-1">892</p>
+                    </div>
+                    <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800">
+                        <span class="text-xs font-mono text-slate-400">NXTSIEM Engine</span>
+                        <p class="text-2xl font-bold font-mono text-brand-accent mt-1">Dev v0.8</p>
+                    </div>
+                    <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800">
+                        <span class="text-xs font-mono text-slate-400">Hardware Overhead</span>
+                        <p class="text-2xl font-bold font-mono text-purple-400 mt-1">0 Appliances</p>
+                    </div>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2">SME-Optimized</h3>
-                <p class="text-gray-400 text-xs leading-relaxed">Enterprise-grade security controls designed specifically for growing operations with zero volume tax penalties.</p>
-            </div>
 
-            <div class="p-6 rounded-2xl bg-cyber-900/90 border border-cyber-800 glow-box">
-                <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-4">
-                    <i class="fa-solid fa-microchip"></i>
+                <!-- Console Interactive Controls & Feed -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <div class="lg:col-span-4 space-y-4">
+                        <h4 class="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">Console Simulator Controls</h4>
+                        
+                        <button id="toggleSimulationBtn" onclick="toggleLogStream()" class="w-full py-3 px-4 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/30 font-mono text-xs font-bold transition-all flex items-center justify-center gap-2">
+                            <i id="simStatusIcon" class="fa-solid fa-pause"></i>
+                            <span id="simStatusText">PAUSE LIVE STREAM</span>
+                        </button>
+
+                        <button onclick="injectSimulatedAttack()" class="w-full py-3 px-4 rounded-lg bg-brand-alert/20 border border-brand-alert/40 text-brand-alert hover:bg-brand-alert/30 font-mono text-xs font-bold transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-bolt"></i>
+                            INJECT ATTACK VECTOR
+                        </button>
+
+                        <div class="p-4 rounded-lg bg-slate-900/60 border border-slate-800 space-y-2 text-xs font-mono">
+                            <span class="text-slate-300 font-bold block border-b border-slate-800 pb-2">Active Modules</span>
+                            <div class="text-slate-400 flex justify-between">
+                                <span>NXTSIEM Parser:</span> <span class="text-emerald-400">ACTIVE</span>
+                            </div>
+                            <div class="text-slate-400 flex justify-between">
+                                <span>NXTDR Containment Hook:</span> <span class="text-emerald-400">ACTIVE</span>
+                            </div>
+                            <div class="text-slate-400 flex justify-between">
+                                <span>Lightweight Utility Suite:</span> <span class="text-brand-amber">READY</span>
+                            </div>
+                        </div>
+
+                        <!-- TELEMETRY SECTION IMAGE CARD -->
+                        <div class="relative rounded-lg overflow-hidden border border-cyber-cyan/30 bg-cyber-900/80">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Server Telemetry Data Node" class="w-full h-28 object-cover opacity-70">
+                            <div class="absolute inset-0 bg-gradient-to-t from-cyber-950 via-transparent to-transparent flex items-end p-2">
+                                <span class="text-cyber-cyan font-mono text-[10px] uppercase">// REALTIME NODE MONITORING</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Console Feed -->
+                    <div class="lg:col-span-8 bg-slate-950 p-4 rounded-xl border border-slate-800">
+                        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs font-mono text-slate-400">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-neon animate-ping"></span>
+                                <span>REALTIME SAMSE LOG STREAM</span>
+                            </div>
+                            <span class="text-[10px] text-slate-500">HARDWARE-FREE ENGINE</span>
+                        </div>
+
+                        <div id="telemetryFeed" class="font-mono text-xs space-y-2 h-64 overflow-y-auto pr-2">
+                            <!-- Dynamic logs populated by JS -->
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2">Low Overhead</h3>
-                <p class="text-gray-400 text-xs leading-relaxed">Optimized footprint engineered for rapid deployment, sub-second telemetry queries, and simple maintenance.</p>
             </div>
         </div>
+    </section>
 
-    </main>
+    <div class="section-divider"></div>
+
+    <!-- WHY SAMSE SECTION -->
+    <section id="why-us" class="py-20 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-mono font-bold tracking-widest text-brand-neon uppercase">The SAMSE Differentiation</span>
+                <h2 class="text-3xl font-extrabold text-white">Why Partner with SAMSE</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="text-brand-neon text-3xl font-mono font-black mb-4">01</div>
+                        <h3 class="text-lg font-bold text-white mb-2">No Hardware Lock-In</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Unlike traditional vendors who require heavy hardware appliances, SAMSE products and tools run purely in software, cutting capital expenditure dramatically.</p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden border border-cyber-cyan/20">
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Cloud Network Topology" class="w-full h-24 object-cover opacity-60">
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="text-brand-accent text-3xl font-mono font-black mb-4">02</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Unified Product Ecosystem</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">Our NXT product suite (NXTSIEM, NXTDR, NXTSM, NXTVPN) is built from the ground up to interoperate natively without complex third-party connectors.</p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden border border-cyber-blue/20">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Integrated Security Operations Platform" class="w-full h-24 object-cover opacity-60">
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="text-purple-400 text-3xl font-mono font-black mb-4">03</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Dual Expertise</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">We combine the discipline of Software Administration with Modern Security Engineering to ensure software environments are both stable and unbreachable.</p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden border border-purple-500/20">
+                        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=600&q=80" alt="Security Engineering Code Analysis" class="w-full h-24 object-cover opacity-60">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
-        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-cyber-cyan flex items-center justify-center text-cyber-950 font-bold">
+                    <i class="fa-solid fa-shield-halved text-sm"></i>
+                </div>
+                <span class="font-black tracking-wider text-white">SAMSE</span>
+            </div>
+            <p class="text-xs font-mono text-gray-500 text-center">
+                &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+            </p>
+            <div class="flex space-x-6 text-gray-400">
+                <a href="https://github.com/SohrabALi446/SAMSE-Web-Portal" target="_blank" class="hover:text-cyber-cyan transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="contact.html" class="hover:text-cyber-cyan transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- JavaScript Engine for Mobile Menu & Live Telemetry Sandbox -->
     <script>
+        // Mobile Navigation Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
         }
+
+        // Hero Terminal Reset
+        function clearHeroTerminal() {
+            const container = document.getElementById('heroLogContainer');
+            if (container) {
+                container.innerHTML = `
+                    <div class="text-brand-neon">[INIT] SAMSE Engine console reset.</div>
+                    <div class="text-slate-400">[STATUS] Listening on default ports (8443, 514, 443)...</div>
+                `;
+            }
+        }
+
+        // Live Telemetry Engine State & Logic
+        let isSimulating = true;
+        let totalLogs = 1248910;
+        let totalThreats = 892;
+        let simInterval = null;
+
+        const telemetryFeed = document.getElementById('telemetryFeed');
+        const statTotalLogs = document.getElementById('statTotalLogs');
+        const statThreats = document.getElementById('statThreats');
+        const simStatusText = document.getElementById('simStatusText');
+        const simStatusIcon = document.getElementById('simStatusIcon');
+        const toggleBtn = document.getElementById('toggleSimulationBtn');
+
+        const logTemplates = [
+            { text: "[PARSER] Accepted Syslog event from IP 192.168.1.104 -> Parsed cleanly", type: "info" },
+            { text: "[NXTSIEM] Windows Security Event 4624 (Successful Logon) user=svc_admin", type: "info" },
+            { text: "[NXTDR] Process spawn verified: pid=4812 binary=svchost.exe (Hash Valid)", type: "info" },
+            { text: "[SYSTEM] TLS 1.3 Cryptotunnel established over port 8443", type: "info" },
+            { text: "[CONFIG] Automated configuration patch check completed -> 0 drift detected", type: "info" },
+            { text: "[WARNING] Rapid API queries detected from src_ip=10.0.4.52 (Rate limit threshold: 85%)", type: "warning" },
+            { text: "[NXTSIEM] Behavioral Anomaly detected: Unexpected powershell execution context", type: "threat" },
+            { text: "[ALERT] Failed SSH root login attempt from external endpoint", type: "threat" }
+        ];
+
+        function appendLogEntry(message, type = "info") {
+            if (!telemetryFeed) return;
+            const entry = document.createElement('div');
+            const timeStr = new Date().toISOString().split('T')[1].slice(0, 8);
+            
+            if (type === "threat") {
+                entry.className = "text-brand-alert font-bold";
+                entry.innerHTML = `<span class="text-slate-500">[${timeStr}]</span> <i class="fa-solid fa-triangle-exclamation mr-1"></i> ${message}`;
+            } else if (type === "warning") {
+                entry.className = "text-brand-amber";
+                entry.innerHTML = `<span class="text-slate-500">[${timeStr}]</span> ${message}`;
+            } else {
+                entry.className = "text-slate-300";
+                entry.innerHTML = `<span class="text-slate-500">[${timeStr}]</span> ${message}`;
+            }
+
+            telemetryFeed.appendChild(entry);
+            telemetryFeed.scrollTop = telemetryFeed.scrollHeight;
+
+            // Keep container clean (max 40 logs)
+            if (telemetryFeed.children.length > 40) {
+                telemetryFeed.removeChild(telemetryFeed.firstChild);
+            }
+        }
+
+        function runTelemetryLoop() {
+            if (!isSimulating) return;
+            
+            // Increment Stats
+            totalLogs += Math.floor(Math.random() * 5) + 1;
+            if (statTotalLogs) statTotalLogs.textContent = totalLogs.toLocaleString();
+
+            // Random log generation
+            const randomIndex = Math.floor(Math.random() * logTemplates.length);
+            const template = logTemplates[randomIndex];
+            
+            if (template.type === "threat") {
+                totalThreats += 1;
+                if (statThreats) statThreats.textContent = totalThreats.toLocaleString();
+            }
+
+            appendLogEntry(template.text, template.type);
+        }
+
+        function toggleLogStream() {
+            isSimulating = !isSimulating;
+            if (isSimulating) {
+                if (simStatusText) simStatusText.textContent = "PAUSE LIVE STREAM";
+                if (simStatusIcon) simStatusIcon.className = "fa-solid fa-pause";
+                if (toggleBtn) toggleBtn.className = "w-full py-3 px-4 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/30 font-mono text-xs font-bold transition-all flex items-center justify-center gap-2";
+                appendLogEntry("[CONSOLE] Telemetry ingestion stream resumed by user.", "info");
+            } else {
+                if (simStatusText) simStatusText.textContent = "RESUME LIVE STREAM";
+                if (simStatusIcon) simStatusIcon.className = "fa-solid fa-play";
+                if (toggleBtn) toggleBtn.className = "w-full py-3 px-4 rounded-lg bg-brand-neon/20 border border-brand-neon/40 text-brand-neon hover:bg-brand-neon/30 font-mono text-xs font-bold transition-all flex items-center justify-center gap-2";
+                appendLogEntry("[CONSOLE] Telemetry ingestion stream paused by user.", "warning");
+            }
+        }
+
+        function injectSimulatedAttack() {
+            totalThreats += 1;
+            totalLogs += 15;
+            if (statThreats) statThreats.textContent = totalThreats.toLocaleString();
+            if (statTotalLogs) statTotalLogs.textContent = totalLogs.toLocaleString();
+            
+            appendLogEntry("[ATTACK INJECTED] High-severity Mimikatz memory injection signature matched!", "threat");
+            appendLogEntry("[NXTDR CONTAINMENT] Automated agent isolation playbook triggered for host SRV-DB-01", "threat");
+            appendLogEntry("[NXTSIEM] Correlation Incident #9401 auto-generated and routed to SOC queue", "warning");
+        }
+
+        // Start Telemetry simulation loop on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial seed logs
+            appendLogEntry("[SYSTEM] SAMSE Telemetry Stream Service online.", "info");
+            appendLogEntry("[NXTSIEM] Collector bound to UDP 514 / TCP 8443", "info");
+            appendLogEntry("[NXTDR] 142 Enterprise agents connected and transmitting heartbeats.", "info");
+
+            simInterval = setInterval(runTelemetryLoop, 2200);
+        });
     </script>
 </body>
 </html>
