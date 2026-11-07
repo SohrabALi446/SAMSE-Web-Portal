@@ -13,7 +13,7 @@
                     colors: { 
                         cyber: { 
                             950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
-                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b' 
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', purple: '#a855f7' 
                         } 
                     } 
                 } 
@@ -32,6 +32,11 @@
         }
         .glow-box-beta { 
             box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.25); 
+        }
+        .glass-panel {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.15);
         }
     </style>
 </head>
@@ -100,7 +105,6 @@
 
         <!-- CORPORATE HERO IMAGE BANNER -->
         <div class="relative rounded-3xl overflow-hidden border border-cyber-cyan/30 glow-box bg-cyber-900/80">
-            <!-- Replace src with your local corporate image path if needed e.g. images/corporate-security.jpg -->
             <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80" alt="SAMSE Security Operations Center" class="w-full h-72 sm:h-96 object-cover opacity-75 hover:opacity-90 transition-opacity">
             <div class="absolute inset-0 bg-gradient-to-t from-cyber-950 via-cyber-950/40 to-transparent flex items-end p-6 sm:p-8">
                 <div class="flex items-center justify-between w-full flex-wrap gap-4">
@@ -129,16 +133,16 @@
                             <i class="fa-solid fa-chart-line"></i>
                         </div>
                         <div>
-                            <span class="text-amber-400 font-mono text-xs tracking-widest uppercase">// FLAGSHIP PREVIEW • 50% COST REDUCTION</span>
+                            <span class="text-amber-400 font-mono text-xs tracking-widest uppercase">// FLAGSHIP PREVIEW</span>
                             <h2 class="text-2xl sm:text-3xl font-black text-white">NXTSIEM (Log Analytics & Threat Engine)</h2>
                         </div>
                     </div>
                     <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                        Test SAMSE's lightweight, zero-volume tax SIEM solution. Features high-speed Syslog ingestion, custom rule correlation, MITRE ATT&CK mapping, and cuts traditional log collection expenses by up to 50%.
+                        Test SAMSE's lightweight, zero-volume tax SIEM solution. Features high-speed Syslog ingestion, custom rule correlation, MITRE ATT&CK mapping, and automated host isolation via <strong class="text-white">NXTMGR</strong>.
                     </p>
                     <div class="flex flex-wrap gap-2 font-mono text-xs text-amber-300/80">
                         <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#LogIngestion</span>
-                        <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#CostEffective</span>
+                        <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#PredictableScaling</span>
                         <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20">#ThreatHunting</span>
                     </div>
                 </div>
@@ -152,6 +156,59 @@
                         <i class="fa-solid fa-paper-plane"></i>
                         <span>Apply for Early Access</span>
                     </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- REVISED SECTION: COST EFFECTIVENESS AGAINST ALL PEERS (NO PERCENTAGES, NO LICENSING REFERENCES) -->
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl border-2 border-emerald-500/30 bg-gradient-to-br from-cyber-900 via-cyber-900 to-emerald-950/20 space-y-8">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-cyber-800 pb-6">
+                <div>
+                    <span class="text-emerald-400 font-mono text-xs uppercase tracking-widest">// ARCHITECTURAL EFFICIENCY</span>
+                    <h2 class="text-2xl sm:text-4xl font-black text-white mt-1">Cost-Effective Superiority Against Industry Peers</h2>
+                </div>
+                <div class="inline-flex items-center space-x-2 bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 px-4 py-2 rounded-xl font-mono text-xs font-bold w-fit">
+                    <i class="fa-solid fa-piggy-bank"></i>
+                    <span>Optimized Resource Overhead</span>
+                </div>
+            </div>
+
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                Legacy enterprise security products impose heavy operational burdens through bandwidth indexing penalties, costly infrastructure demands, and complex integration requirements. SAMSE re-engineers modern security tools to maximize efficiency without subjecting growing organizations to data-volume taxes or bloated resource requirements.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Peer Comparison 1 -->
+                <div class="p-6 rounded-2xl bg-cyber-950/80 border border-emerald-500/20 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">
+                        <i class="fa-solid fa-ban text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Zero Data-Volume Penalty</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Unlike traditional SIEM peers charging per Gigabyte of ingested logs, SAMSE provides predictable architecture so security telemetry can scale naturally without volume penalties.
+                    </p>
+                </div>
+
+                <!-- Peer Comparison 2 -->
+                <div class="p-6 rounded-2xl bg-cyber-950/80 border border-emerald-500/20 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">
+                        <i class="fa-solid fa-cubes-stacked text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Native Stack Integration</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Eliminates third-party connector tools and integration overhead by offering native inter-product communication between NXTMGR, NXTDR, and NXTFW.
+                    </p>
+                </div>
+
+                <!-- Peer Comparison 3 -->
+                <div class="p-6 rounded-2xl bg-cyber-950/80 border border-emerald-500/20 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold">
+                        <i class="fa-solid fa-microchip text-lg"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Minimal Hardware Footprint</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Optimized C/Python engines minimize infrastructure resource requirements, reducing virtual machine memory allocation and host compute overhead.
+                    </p>
                 </div>
             </div>
         </div>
