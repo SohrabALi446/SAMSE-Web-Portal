@@ -13,7 +13,7 @@
                     colors: { 
                         cyber: { 
                             950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
-                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b' 
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', purple: '#a855f7' 
                         } 
                     } 
                 } 
@@ -30,14 +30,13 @@
         .glow-box { 
             box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); 
         }
+        .glow-box-dev { 
+            box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.25); 
+        }
         .glass-panel {
             background: rgba(11, 15, 25, 0.85);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(6, 182, 212, 0.15);
-        }
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
         }
     </style>
 </head>
@@ -61,128 +60,72 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
+    <!-- Main Content -->
     <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12 w-full">
         
         <!-- Product Header Banner -->
-        <div class="glass-panel p-8 sm:p-12 rounded-3xl glow-box relative overflow-hidden">
-            <div class="absolute top-6 right-6">
-                <span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs uppercase tracking-wider">
-                    ● Active Development (v0.8)
-                </span>
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl glow-box-dev border-2 border-cyber-cyan/50 relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-cyber-cyan text-cyber-950 font-mono text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider flex items-center space-x-1.5 shadow-lg">
+                <i class="fa-solid fa-code-merge"></i>
+                <span>Under Active Development</span>
             </div>
             
-            <div class="flex items-center space-x-4 mb-4">
+            <div class="flex items-center space-x-4 mb-4 mt-2">
                 <div class="w-14 h-14 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan text-2xl">
-                    <i class="fa-solid fa-bug-slash"></i>
+                    <i class="fa-solid fa-radar"></i>
                 </div>
                 <div>
                     <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">NXTDR</h1>
-                    <p class="text-cyber-cyan font-mono text-xs uppercase tracking-widest mt-1">Endpoint Detection & Response (EDR) Suite</p>
+                    <p class="text-cyber-cyan font-mono text-xs uppercase tracking-widest mt-1">Endpoint Detection & Response (EDR) • Active Development (v0.4)</p>
                 </div>
             </div>
 
             <p class="text-gray-300 text-sm sm:text-base leading-relaxed mt-6 max-w-3xl">
-                NXTDR is a lightweight, high-performance endpoint agent engineered to monitor process execution trees, file integrity changes, assembly dependencies, and system telemetry across workstations and servers without introducing heavy CPU overhead or hardware lock-in.
+                NXTDR is engineered to provide continuous behavioral endpoint telemetry, tracking process executions, file modifications, and network connections to neutralize advanced threats before lateral movement occurs.
             </p>
+
+            <div class="mt-6 p-4 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center space-x-3 text-cyber-300 text-xs font-mono">
+                    <i class="fa-solid fa-gears text-cyber-cyan text-base"></i>
+                    <span>Building kernel-level hook modules and automated isolation playbooks.</span>
+                </div>
+                <a href="../contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan text-cyber-950 font-bold font-mono text-xs uppercase tracking-wider hover:bg-cyber-blue transition-colors shadow-md">
+                    Inquire About Roadmap
+                </a>
+            </div>
         </div>
 
-        <!-- Why We Need NXTDR Section -->
+        <!-- Core Specs -->
         <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
             <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
-                <i class="fa-solid fa-triangle-exclamation text-amber-400 text-xl"></i>
-                <h2 class="text-xl sm:text-2xl font-bold text-white">Why We Need NXTDR</h2>
+                <i class="fa-solid fa-circle-info text-cyber-cyan text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Core Capabilities & Roadmap</h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
-                    <h4 class="font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-shield text-cyber-cyan"></i> Defense Beyond Perimeter
-                    </h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Traditional firewalls only protect network perimeters. Once an adversary bypasses network barriers or steals valid credentials (e.g., via password spraying or phishing), internal endpoints become vulnerable. NXTDR provides deep internal visibility right at the host level.
-                    </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Behavioral Telemetry</span>
+                    <p class="text-gray-400">Real-time inspection of process spawning, memory injection, and unusual API hooks.</p>
                 </div>
-
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
-                    <h4 class="font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-bolt text-amber-400"></i> Elimination of Hardware Bloat
-                    </h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Enterprise EDR solutions often demand expensive physical appliances and complex licensing. NXTDR is designed on SAMSE's hardware-free philosophy—deploying cleanly as a lightweight software agent across Linux, Windows, and containerized nodes.
-                    </p>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Instant Host Isolation</span>
+                    <p class="text-gray-400">One-click network severance to prevent ransomware and malware from spreading locally.</p>
                 </div>
-
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
-                    <h4 class="font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-clock-rotate-left text-emerald-400"></i> Rapid Incident Triage
-                    </h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        When application assemblies or system binaries become corrupted or modified (such as missing .NET dependencies or unauthorized DLL injections), NXTDR cross-references quarantine logs and triggers immediate alerts to prevent cascading failures.
-                    </p>
-                </div>
-
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
-                    <h4 class="font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-link text-purple-400"></i> Unified Ecosystem Integration
-                    </h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        NXTDR feeds telemetry directly into the <strong class="text-white">NXTSIEM</strong> log analytics engine and can be remotely managed and configured through the centralized <strong class="text-white">NXTMGR</strong> control plane.
-                    </p>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">NXTMGR Integration</span>
+                    <p class="text-gray-400">Direct pipeline reporting alerts and triggers directly into the centralized console.</p>
                 </div>
             </div>
         </div>
 
-        <!-- How NXTDR Works Section -->
-        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
-            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
-                <i class="fa-solid fa-gears text-cyber-blue text-xl"></i>
-                <h2 class="text-xl sm:text-2xl font-bold text-white">How NXTDR Works (Technical Architecture)</h2>
-            </div>
-
-            <div class="space-y-4 font-mono text-xs">
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
-                    <span class="px-2.5 py-1 bg-cyber-cyan/20 text-cyber-cyan font-bold rounded">01</span>
-                    <div>
-                        <span class="text-white font-bold block text-sm mb-1">Kernel & Process Telemetry Collection</span>
-                        <span class="text-gray-400 leading-relaxed">The lightweight agent hooks into operating system auditing frameworks (such as Windows Security Log / Sysmon and Linux auditd / eBPF) to monitor process spawning, parent-child execution chains, and network socket bindings in real time.</span>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
-                    <span class="px-2.5 py-1 bg-cyber-blue/20 text-cyber-blue font-bold rounded">02</span>
-                    <div>
-                        <span class="text-white font-bold block text-sm mb-1">File Integrity Monitoring (FIM) & Assembly Auditing</span>
-                        <span class="text-gray-400 leading-relaxed">NXTDR continuously hashes critical system binaries, configuration files, and application assemblies. Any unexpected modification or corruption (e.g., missing DLLs or unauthorized file overwrites) triggers an immediate anomaly flag.</span>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
-                    <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 font-bold rounded">03</span>
-                    <div>
-                        <span class="text-white font-bold block text-sm mb-1">Automated Containment Hooks</span>
-                        <span class="text-gray-400 leading-relaxed">Upon detecting behavioral indicators of compromise (IoCs)—such as suspicious PowerShell execution or credential dumping attempts—NXTDR executes automated playbooks to isolate the host network interface (via `iptables` or Windows Firewall rules) while keeping forensics logging active.</span>
-                    </div>
-                </div>
-
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-cyber-900/80 border border-cyber-800">
-                    <span class="px-2.5 py-1 bg-purple-500/20 text-purple-400 font-bold rounded">04</span>
-                    <div>
-                        <span class="text-white font-bold block text-sm mb-1">Centralized NXTMGR Reporting</span>
-                        <span class="text-gray-400 leading-relaxed">All threat events, quarantined artifacts, and remediation statuses are securely encrypted and forwarded back to the centralized management console for SOC analyst review and incident closure.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Action / CTA Footer Banner -->
+        <!-- Action / CTA -->
         <div class="p-8 rounded-2xl bg-gradient-to-r from-cyber-900 to-cyber-800 border border-cyber-700 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
             <div>
-                <h3 class="text-lg font-bold text-white font-mono">Ready to deploy NXTDR across your endpoints?</h3>
-                <p class="text-gray-400 text-xs mt-1">Request early access or schedule a technical architecture walkthrough with SAMSE engineers.</p>
+                <h3 class="text-lg font-bold text-white font-mono">Want to track NXTDR milestones?</h3>
+                <p class="text-gray-400 text-xs mt-1">Connect with SAMSE engineers for development updates.</p>
             </div>
             <a href="../contact.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold font-mono text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/20 whitespace-nowrap">
-                Request NXTDR Access
+                Contact Engineering
             </a>
         </div>
 
