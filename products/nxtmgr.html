@@ -3,57 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NXTMGR - SAMSE Security Manager</title>
+    <title>NXTMGR - SAMSE Centralized Management Console</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { cyber: { 950: '#030712', 900: '#0b0f19', 800: '#111827', cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981' } } } } }
+        tailwind.config = { 
+            darkMode: 'class', 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        cyber: { 
+                            950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', purple: '#a855f7' 
+                        } 
+                    } 
+                } 
+            } 
+        }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .matrix-bg { background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px); background-size: 40px 40px; }
-        .glow-box { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); }
-        .glass-panel { background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(6, 182, 212, 0.2); }
+        .matrix-bg { 
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px); 
+            background-size: 40px 40px; 
+            background-position: 0 0, 20px 20px;
+        } 
+        .glow-box { 
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); 
+        }
+        .glow-box-dev { 
+            box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.25); 
+        }
+        .glass-panel {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+        }
     </style>
 </head>
 <body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col antialiased">
+    
+    <!-- Navbar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="../index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl"><i class="fa-solid fa-shield-halved"></i></div>
-                <span class="text-xl font-black text-white">SAMSE</span>
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-cyber-cyan/20">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-blue bg-clip-text text-transparent">SAMSE</span>
+                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
+                </div>
             </a>
-            <a href="../products.html" class="text-cyber-cyan font-mono text-xs hover:underline flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Products</a>
+            <a href="../products.html" class="text-cyber-cyan font-mono text-xs uppercase hover:underline flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Back to Products
+            </a>
         </div>
     </header>
-    <main class="flex-grow py-16 px-4 max-w-5xl mx-auto space-y-10 w-full">
-        <div class="glass-panel p-8 sm:p-12 rounded-3xl glow-box relative">
-            <div class="absolute top-6 right-6"><span class="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs uppercase">● Core Orchestrator</span></div>
-            <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest block mb-2">// CENTRAL CONTROL PLANE</span>
-            <h1 class="text-4xl font-black text-white mb-2">NXTMGR</h1>
-            <p class="text-cyber-cyan font-mono text-sm mb-6">Unified Command Station & Ecosystem Orchestrator</p>
-            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                NXTMGR serves as the central administrative hub and orchestration control plane for the entire SAMSE suite. It provides real-time health telemetry, bulk policy distribution, and frictionless native integration across all software-defined modules.
+
+    <!-- Main Content -->
+    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12 w-full">
+        
+        <!-- Product Header Banner (Under Development Status) -->
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl glow-box-dev border-2 border-cyber-cyan/50 relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-cyber-cyan text-cyber-950 font-mono text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider flex items-center space-x-1.5 shadow-lg">
+                <i class="fa-solid fa-code-merge"></i>
+                <span>Under Active Development</span>
+            </div>
+            
+            <div class="flex items-center space-x-4 mb-4 mt-2">
+                <div class="w-14 h-14 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan text-2xl">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">NXTMGR</h1>
+                    <p class="text-cyber-cyan font-mono text-xs uppercase tracking-widest mt-1">Centralized Management Console • Orchestration Engine (v0.5)</p>
+                </div>
+            </div>
+
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed mt-6 max-w-3xl">
+                NXTMGR is the foundational orchestration command center for the SAMSE security ecosystem. It provides unified control, global security policy deployment, and real-time node health auditing across distributed firewalls, gateways, and endpoint agents.
             </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 font-mono text-xs space-y-2">
-                <span class="text-cyber-cyan font-bold block text-sm">Daemon Architecture</span>
-                <p class="text-gray-400">Asynchronous Python/Node service bound to secure local sockets with mutual TLS (mTLS).</p>
-            </div>
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 font-mono text-xs space-y-2">
-                <span class="text-cyber-cyan font-bold block text-sm">State & Storage</span>
-                <p class="text-gray-400">Optimized SQLite backend maintaining role-based access control (RBAC) and audit histories.</p>
-            </div>
-            <div class="p-6 rounded-2xl bg-cyber-900 border border-cyber-800 font-mono text-xs space-y-2">
-                <span class="text-cyber-cyan font-bold block text-sm">API Integration</span>
-                <p class="text-gray-400">Robust RESTful endpoints enabling CI/CD policy pushes and external SIEM hook triggers.</p>
+
+            <!-- Status Notice Badge -->
+            <div class="mt-6 p-4 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center space-x-3 text-cyber-300 text-xs font-mono">
+                    <i class="fa-solid fa-gears text-cyber-cyan text-base"></i>
+                    <span>Currently building centralized API routing and multi-node telemetry synchronization layers.</span>
+                </div>
+                <a href="../contact.html" class="px-4 py-2 rounded-lg bg-cyber-cyan text-cyber-950 font-bold font-mono text-xs uppercase tracking-wider hover:bg-cyber-blue transition-colors shadow-md">
+                    Inquire About Roadmap
+                </a>
             </div>
         </div>
-        <div class="p-8 rounded-2xl bg-gradient-to-r from-cyber-900 to-cyber-800 border border-cyber-700 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div><h3 class="text-lg font-bold text-white font-mono">Ready to unify your enterprise security?</h3><p class="text-gray-400 text-xs mt-1">Deploy NXTMGR across your virtualized infrastructure instantly.</p></div>
-            <a href="../contact.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold font-mono text-xs uppercase tracking-wider shadow-lg">Request Access</a>
+
+        <!-- Basic Information Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-circle-info text-cyber-cyan text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Core Architecture & Objectives</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Unified Command Dashboard</span>
+                    <p class="text-gray-400">Single-pane-of-glass overview monitoring node status, active security rules, and cluster health metrics.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Global Policy Push</span>
+                    <p class="text-gray-400">Instant propagation of firewall rules, threat hunting queries, and EDR containment configurations to all edge devices.</p>
+                </div>
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
+                    <span class="text-cyber-cyan font-bold block text-sm">Role-Based Access Control</span>
+                    <p class="text-gray-400">Granular administrative privileges ensuring secure multi-operator collaboration across security operations teams.</p>
+                </div>
+            </div>
         </div>
+
+        <!-- Why It Matters Section -->
+        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
+            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
+                <i class="fa-solid fa-building-shield text-emerald-400 text-xl"></i>
+                <h2 class="text-xl sm:text-2xl font-bold text-white">Strategic Value for Infrastructure Administration</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-network-wired text-cyber-cyan"></i> Eliminates Administrative Silos
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Managing firewalls, SIEM logs, and endpoint agents separately leads to configuration drift and blind spots. NXTMGR unifies all administrative actions into a synchronized workflow.
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
+                    <h4 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-amber-400"></i> Automated Response Triggers
+                    </h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        When NXTSIEM or NXTDR detects an anomaly, NXTMGR acts as the central router to automatically push containment commands across the network perimeter instantly.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action / CTA Footer Banner -->
+        <div class="p-8 rounded-2xl bg-gradient-to-r from-cyber-900 to-cyber-800 border border-cyber-700 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+            <div>
+                <h3 class="text-lg font-bold text-white font-mono">Interested in participating in the NXTMGR preview?</h3>
+                <p class="text-gray-400 text-xs mt-1">Contact our engineering division to discuss custom deployment schedules.</p>
+            </div>
+            <a href="../contact.html" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-blue text-cyber-950 font-bold font-mono text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg shadow-cyber-cyan/20 whitespace-nowrap">
+                Contact Engineering
+            </a>
+        </div>
+
     </main>
-    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">&copy; 2026 SAMSE: Software Administration and Modern Security Engineering.</footer>
+
+    <!-- Footer -->
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
+        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    </footer>
 </body>
 </html>
