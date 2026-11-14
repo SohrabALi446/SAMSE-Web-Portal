@@ -3,249 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NXTSIEM - SAMSE Security Analytics & Log Management</title>
+    <title>NXTSIEM - AI-Driven SIEM Investigation & Multi-Index Mapping | SAMSE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { 
-            darkMode: 'class', 
-            theme: { 
-                extend: { 
-                    colors: { 
-                        cyber: { 
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
                             950: '#030712', 900: '#0b0f19', 800: '#111827', 700: '#1f2937',
-                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', purple: '#a855f7' 
-                        } 
-                    } 
-                } 
-            } 
+                            cyan: '#06b6d4', blue: '#3b82f6', emerald: '#10b981', amber: '#f59e0b', rose: '#f43f5e'
+                        },
+                        brand: {
+                            bg: '#030712',
+                            border: 'rgba(6, 182, 212, 0.2)',
+                            neon: '#06b6d4',
+                            accent: '#3b82f6',
+                            amber: '#f59e0b',
+                            alert: '#f43f5e'
+                        }
+                    },
+                    fontFamily: { mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'] }
+                }
+            }
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .matrix-bg { 
-            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px); 
-            background-size: 40px 40px; 
-            background-position: 0 0, 20px 20px;
-        } 
-        .glow-box { 
-            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); 
+        .matrix-bg {
+            background-image: radial-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), radial-gradient(rgba(59, 130, 246, 0.05) 1px, #030712 1px);
+            background-size: 40px 40px; background-position: 0 0, 20px 20px;
         }
-        .glow-box-beta { 
-            box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.25); 
-        }
+        .glow-box { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15); }
         .glass-panel {
-            background: rgba(11, 15, 25, 0.85);
+            background: rgba(17, 24, 39, 0.75);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(6, 182, 212, 0.15);
         }
+        .cyber-border { border: 1px solid rgba(6, 182, 212, 0.3); }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+        }
     </style>
 </head>
-<body class="bg-cyber-950 text-gray-100 font-sans matrix-bg min-h-screen flex flex-col antialiased">
-    
-    <!-- Navbar -->
+<body class="bg-cyber-950 text-gray-100 font-sans antialiased selection:bg-cyber-cyan selection:text-cyber-950 matrix-bg min-h-screen flex flex-col">
+    <!-- Top Ribbon -->
+    <div class="bg-gradient-to-r from-brand-bg via-slate-900 to-brand-bg border-b border-brand-border py-2 text-center text-xs font-mono text-slate-300 px-4">
+        <span class="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse mr-2"></span>
+        <span class="font-semibold text-amber-400">NXTSIEM V0.8 BETA:</span> AI-Driven Cross-Index Mapping & One-Click Triage Console Active.
+    </div>
+
+    <!-- Navigation -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-cyber-950/80 border-b border-cyber-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-blue flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-cyber-cyan/20">
-                    <i class="fa-solid fa-shield-halved"></i>
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-cyber-cyan flex items-center justify-center text-cyber-950 font-bold text-xl shadow-lg shadow-amber-500/20">
+                    <i class="fa-solid fa-chart-line"></i>
                 </div>
                 <div>
-                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyber-cyan via-white to-cyber-blue bg-clip-text text-transparent">SAMSE</span>
-                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">Security & Administration</span>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-amber-400 via-white to-cyber-cyan bg-clip-text text-transparent">NXTSIEM</span>
+                    <span class="block text-[10px] text-gray-400 font-mono tracking-widest uppercase">SAMSE Flagship Engine</span>
                 </div>
             </a>
-            <a href="../products.html" class="text-cyber-cyan font-mono text-xs uppercase hover:underline flex items-center gap-2">
-                <i class="fa-solid fa-arrow-left"></i> Back to Products
-            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="index.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">About</a>
+                <a href="services.html" class="text-gray-300 hover:text-cyber-cyan transition-colors">Services</a>
+                <a href="products.html" class="text-amber-400 font-semibold">Product Suite</a>
+                <a href="contact.html" class="px-4 py-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500/20 transition-all font-mono text-xs uppercase tracking-wider">Access Beta</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-12 w-full">
-        
-        <!-- Product Header Banner (Highlighted with Beta Status & 50% Savings Badge) -->
-        <div class="glass-panel p-8 sm:p-12 rounded-3xl glow-box-beta border-2 border-amber-500/50 relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-amber-500 text-cyber-950 font-mono text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider flex items-center space-x-1.5 shadow-lg">
-                <i class="fa-solid fa-flask"></i>
-                <span>Beta Testing Available</span>
-            </div>
-            
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4 mt-2">
-                <div class="flex items-center space-x-4">
-                    <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl">
-                        <i class="fa-solid fa-chart-line"></i>
+    <!-- Product Hero Header -->
+    <section class="relative pt-12 pb-16 border-b border-cyber-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-4 max-w-3xl">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono">
+                        <i class="fa-solid fa-brain animate-pulse"></i>
+                        <span>AI-DRIVEN CO-PILOT & MULTI-INDEX CORRELATION</span>
                     </div>
+                    <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white">
+                        NXTSIEM <span class="text-amber-400">Investigation Workbench</span>
+                    </h1>
+                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                        Execute lightning-fast, one-click deep forensics across heterogeneous data indices (Syslog, Windows Event Streams, CloudTrail, NetFlow, and Active Directory logs) powered by automated AI reasoning.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a href="#workbench" class="px-6 py-3.5 rounded-xl bg-amber-500 text-cyber-950 font-extrabold text-xs font-mono uppercase tracking-wider hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20 text-center">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Launch AI Investigator
+                    </a>
+                    <a href="contact.html" class="px-6 py-3.5 rounded-xl bg-cyber-900 border border-cyber-700 text-gray-200 text-xs font-mono uppercase tracking-wider hover:border-amber-400 transition-all text-center">
+                        Request Full Deployment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-DRIVEN ONE-CLICK INVESTIGATION & MULTI-INDEX MAPPING WORKBENCH -->
+    <section id="workbench" class="py-16 relative flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <!-- Workbench Control Panel -->
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-amber-500/30 shadow-2xl space-y-6">
+                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                     <div>
-                        <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight">NXTSIEM</h1>
-                        <p class="text-amber-400 font-mono text-xs uppercase tracking-widest mt-1">Security Information & Event Management (SIEM) • Active Beta (v0.8)</p>
+                        <span class="text-xs font-mono text-amber-400 tracking-wider uppercase">// MULTI-INDEX CORRELATION ENGINE</span>
+                        <h2 class="text-xl font-bold text-white mt-1">One-Click Investigation Dashboard</h2>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <span class="text-xs font-mono text-slate-400">Target Indices:</span>
+                        <span class="px-2.5 py-1 rounded bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">syslog-*</span>
+                        <span class="px-2.5 py-1 rounded bg-brand-accent/10 border border-brand-accent/30 text-brand-accent font-mono text-xs">win-security-*</span>
+                        <span class="px-2.5 py-1 rounded bg-purple-500/10 border border-purple-500/30 text-purple-400 font-mono text-xs">cloudtrail-*</span>
+                        <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs">netflow-*</span>
                     </div>
                 </div>
 
-                <!-- 50% COST SAVINGS HIGHLIGHT BADGE -->
-                <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 px-4 py-2 rounded-xl font-mono text-xs font-bold shadow-lg">
-                    <i class="fa-solid fa-piggy-bank text-sm"></i>
-                    <span>Cuts SIEM Costs Up To 50%</span>
-                </div>
-            </div>
+                <!-- Scenario Selectors / One-Click Triggers -->
+                <div class="space-y-3">
+                    <label class="text-xs font-mono text-slate-300 uppercase tracking-wider block">Select Suspicious Indicator for Automated Cross-Index Mapping:</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <button onclick="triggerInvestigation('ip')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-400 text-left transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono text-amber-400">IOC: 185.220.101.5</span>
+                                <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-white">External C2 IP Address</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">Correlate across firewall, proxy, and netflow indices.</p>
+                        </button>
 
-            <p class="text-gray-300 text-sm sm:text-base leading-relaxed mt-6 max-w-3xl">
-                NXTSIEM is a lightweight, high-performance log collection and threat correlation engine engineered to ingest enterprise syslogs, Windows event logs, and API streams with exceptional efficiency, zero data volume penalties, and minimal overhead.
-            </p>
+                        <button onclick="triggerInvestigation('user')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-400 text-left transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono text-amber-400">USER: j.doe@corp</span>
+                                <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-white">Compromised Service Account</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">Map AD enumeration, AWS login, and SMB traffic.</p>
+                        </button>
 
-            <!-- Quick Beta Notice Badge -->
-            <div class="mt-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between flex-wrap gap-4">
-                <div class="flex items-center space-x-3 text-amber-300 text-xs font-mono">
-                    <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base"></i>
-                    <span>Limited slots open for enterprise preview & telemetry feedback.</span>
-                </div>
-                <a href="../contact.html" class="px-4 py-2 rounded-lg bg-amber-500 text-cyber-950 font-bold font-mono text-xs uppercase tracking-wider hover:bg-amber-400 transition-colors shadow-md">
-                    Join Beta Program
-                </a>
-            </div>
-        </div>
+                        <button onclick="triggerInvestigation('hash')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-400 text-left transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono text-amber-400">HASH: 44f8...b12</span>
+                                <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-white">Malicious Binary Hash</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">Scan endpoint execution logs and email attachments.</p>
+                        </button>
 
-        <!-- IMAGE SLOT 1: Dashboard Interface Preview -->
-        <div class="relative rounded-2xl overflow-hidden border border-cyber-cyan/30 glow-box bg-cyber-900/80">
-            <!-- Replace src="https://images.unsplash.com/..." with your own image path e.g. src="../images/nxtsiem-dashboard.png" -->
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="NXTSIEM Console & Dashboard Preview" class="w-full h-64 sm:h-80 object-cover opacity-80 hover:opacity-100 transition-opacity">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-cyber-950 via-cyber-950/80 to-transparent p-4 sm:p-6 flex items-center justify-between">
-                <div>
-                    <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest">// CONSOLE PREVIEW</span>
-                    <h4 class="text-white font-bold text-sm sm:text-base">Real-Time Threat Analytics & Dynamic Rule Parsing Interface</h4>
-                </div>
-                <span class="hidden sm:inline-block px-3 py-1 rounded bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">Fig 1.0</span>
-            </div>
-        </div>
-
-        <!-- SECTION: Why You Need This Product & Its Core Purpose -->
-        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
-            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
-                <i class="fa-solid fa-bullseye text-cyber-cyan text-xl"></i>
-                <h2 class="text-xl sm:text-2xl font-bold text-white">Why You Need NXTSIEM & Its Purpose</h2>
-            </div>
-            
-            <p class="text-gray-300 text-sm leading-relaxed">
-                Modern enterprise networks generate millions of log events daily across endpoint devices, firewalls, and cloud servers. Without centralized visibility, critical security incidents remain undetected until extensive damage occurs. 
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
-                    <div class="text-cyber-cyan text-lg mb-1"><i class="fa-solid fa-eye"></i></div>
-                    <h4 class="text-white font-bold text-sm">Eliminate Security Blind Spots</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Consolidates telemetry from disparate systems into one unified engine, allowing analysts to catch unauthorized lateral movement and privilege escalations immediately.
-                    </p>
-                </div>
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
-                    <div class="text-cyber-cyan text-lg mb-1"><i class="fa-solid fa-stopwatch"></i></div>
-                    <h4 class="text-white font-bold text-sm">Reduce Response Time (MTTD/MTTR)</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Automated correlation rules instantly flag suspicious activity and trigger containment workflows with <strong class="text-white">NXTMGR</strong> and <strong class="text-white">NXTDR</strong> before data exfiltration can take place.
-                    </p>
-                </div>
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2">
-                    <div class="text-cyber-cyan text-lg mb-1"><i class="fa-solid fa-wallet"></i></div>
-                    <h4 class="text-white font-bold text-sm">Predictable Budgeting</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Designed from the ground up to solve the financial strain caused by traditional SIEM consumption models that penalize organizations as their log data grows.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- HIGHLIGHT SECTION: 50% Cost-Reduction Breakdown -->
-        <div class="glass-panel p-8 sm:p-10 rounded-2xl border-2 border-emerald-500/40 bg-gradient-to-br from-cyber-900 via-cyber-900 to-emerald-950/20 space-y-6">
-            <div class="flex items-center justify-between border-b border-cyber-800 pb-4 flex-wrap gap-4">
-                <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-chart-pie text-emerald-400 text-2xl"></i>
-                    <div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white">Cost-Effective Security Analytics</h2>
-                        <p class="text-emerald-400 font-mono text-xs">Drastically Reduce Operational Expenditure</p>
+                        <button onclick="triggerInvestigation('domain')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-400 text-left transition-all group">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono text-amber-400">DNS: update-service.tk</span>
+                                <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-amber-400 transition-colors"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-white">DGA / Tunneling Domain</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">Inspect DNS queries and outbound HTTPS payloads.</p>
+                        </button>
                     </div>
                 </div>
-                <span class="px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 font-mono text-xs font-black uppercase">
-                    Up to 50% Cost Savings
-                </span>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
-                <div class="p-5 rounded-xl bg-cyber-950/80 border border-emerald-500/20 space-y-2">
-                    <h4 class="font-bold text-white flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-xmark text-red-400"></i> Traditional Enterprise SIEMs
-                    </h4>
-                    <ul class="text-gray-400 text-xs space-y-1.5 list-disc list-inside">
-                        <li>Exorbitant pricing per GB of log ingestion.</li>
-                        <li>Punishes companies for enabling necessary debug & system logs.</li>
-                        <li>Requires massive infrastructure footprints & costly dedicated administration teams.</li>
-                    </ul>
-                </div>
+                <!-- Live Investigation Console output -->
+                <div class="bg-slate-950 rounded-xl border border-slate-800 p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-900 pb-3">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-amber-400 animate-ping"></div>
+                            <span class="text-xs font-mono text-amber-400 font-bold uppercase">AI Co-Pilot Investigation Output</span>
+                        </div>
+                        <span id="investigationStatus" class="text-[11px] font-mono text-slate-500">READY FOR QUERY</span>
+                    </div>
 
-                <div class="p-5 rounded-xl bg-cyber-950/80 border border-emerald-500/40 space-y-2">
-                    <h4 class="font-bold text-emerald-400 flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-check text-emerald-400"></i> SAMSE NXTSIEM Advantage
-                    </h4>
-                    <ul class="text-gray-300 text-xs space-y-1.5 list-disc list-inside">
-                        <li><strong class="text-white">Zero Volume Tax:</strong> Fixed, predictable node-based pricing.</li>
-                        <li><strong class="text-white">50% TCO Reduction:</strong> Lower hardware overhead and zero hidden licensing fees.</li>
-                        <li><strong class="text-white">Optimized Memory Footprint:</strong> Efficient C/Python architecture built for high throughput.</li>
-                    </ul>
+                    <div id="investigationLogBox" class="font-mono text-xs text-slate-300 space-y-3 h-72 overflow-y-auto pr-2">
+                        <div class="text-slate-500">// Click any indicator above to trigger automated multi-index correlation and AI-driven forensic synthesis.</div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Core Features of NXTSIEM AI Mapping -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 rounded-xl space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Cross-Index Normalization</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Instantly maps diverse log schemas (Syslog, JSON, Windows EVTX, CEF) into a unified timeline without manual field extraction queries.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">AI-Synthesized Triage</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        The AI co-pilot grades risk severity, summarizes attacker lateral movement, and maps events directly to MITRE ATT&CK tactics in seconds.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-xl space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">One-Click Remediation</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Trigger automated isolation playbooks via NXTMGR and NXTDR directly from the correlation timeline with a single click.
+                    </p>
+                </div>
+            </div>
+
         </div>
-
-        <!-- IMAGE SLOT 2: System Telemetry & Log Flow Diagram -->
-        <div class="relative rounded-2xl overflow-hidden border border-cyber-cyan/30 glow-box bg-cyber-900/80">
-            <!-- Replace src="https://images.unsplash.com/..." with your own image path e.g. src="../images/nxtsiem-architecture.png" -->
-            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Telemetry Ingestion Flow Diagram" class="w-full h-64 sm:h-80 object-cover opacity-80 hover:opacity-100 transition-opacity">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-cyber-950 via-cyber-950/80 to-transparent p-4 sm:p-6 flex items-center justify-between">
-                <div>
-                    <span class="text-cyber-cyan font-mono text-xs uppercase tracking-widest">// ARCHITECTURE FLOW</span>
-                    <h4 class="text-white font-bold text-sm sm:text-base">High-Speed Syslog, Windows Event & API Stream Parsing Architecture</h4>
-                </div>
-                <span class="hidden sm:inline-block px-3 py-1 rounded bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">Fig 2.0</span>
-            </div>
-        </div>
-
-        <!-- Basic Information & Core Specs -->
-        <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-cyber-800 space-y-6">
-            <div class="flex items-center space-x-3 border-b border-cyber-800 pb-4">
-                <i class="fa-solid fa-sliders text-cyber-cyan text-xl"></i>
-                <h2 class="text-xl sm:text-2xl font-bold text-white">Basic Information & Core Specifications</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
-                    <span class="text-cyber-cyan font-bold block text-sm">Log Ingestion Protocols</span>
-                    <p class="text-gray-400">High-speed Syslog collection over TCP/UDP port 514, secure TLS streams, and structured API hooks.</p>
-                </div>
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
-                    <span class="text-cyber-cyan font-bold block text-sm">Parsing & Normalization</span>
-                    <p class="text-gray-400">Advanced custom log source parsing built on deep administrative experience with QRadar and ArcSight.</p>
-                </div>
-                <div class="p-5 rounded-xl bg-cyber-900/90 border border-cyber-800 space-y-2 font-mono text-xs">
-                    <span class="text-cyber-cyan font-bold block text-sm">Custom Rules Engine (CRE)</span>
-                    <p class="text-gray-400">Real-time behavioral anomaly detection, threshold correlation, and automated alert piping into <strong class="text-white">NXTMGR</strong>.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Action / CTA Footer Banner -->
-        <div class="p-8 rounded-2xl bg-gradient-to-r from-cyber-900 to-amber-950/40 border border-amber-500/40 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-            <div>
-                <h3 class="text-lg font-bold text-white font-mono">Ready to cut SIEM expenses by 50%?</h3>
-                <p class="text-gray-400 text-xs mt-1">Connect with SAMSE engineers to join the NXTSIEM early access beta program.</p>
-            </div>
-            <a href="../contact.html" class="px-6 py-3.5 rounded-xl bg-amber-500 text-cyber-950 font-extrabold font-mono text-xs uppercase tracking-wider hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20 whitespace-nowrap flex items-center gap-2">
-                <i class="fa-solid fa-flask"></i>
-                <span>Apply for Beta Access</span>
-            </a>
-        </div>
-
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 text-center text-xs text-gray-500 font-mono">
-        &copy; 2026 SAMSE: Software Administration and Modern Security Engineering. All rights reserved.
+    <footer class="border-t border-cyber-800 py-8 bg-cyber-950 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center text-cyber-950 font-bold">
+                    <i class="fa-solid fa-chart-line text-sm"></i>
+                </div>
+                <span class="font-black tracking-wider text-white">NXTSIEM / SAMSE</span>
+            </div>
+            <p class="text-xs font-mono text-gray-500 text-center">
+                &copy; 2026 SAMSE Engineering. NXTSIEM Beta Version 0.8. All rights reserved.
+            </p>
+            <div class="flex space-x-6 text-gray-400">
+                <a href="https://github.com/SohrabALi446/SAMSE-Web-Portal" target="_blank" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="contact.html" class="hover:text-amber-400 transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+            </div>
+        </div>
     </footer>
-</body>
-</html>
+
+    <!-- Interactive AI Investigation Script -->
+    <script>
+        function triggerInvestigation(type) {
+            const logBox = document.getElementById('investigationLogBox');
+            const statusEl = document.getElementById('investigationStatus');
+            
+            statusEl.textContent = "QUERYING MULTI-INDEX STORES...";
+            statusEl.className = "text-[11px] font-mono text-amber-400 animate-pulse";
+            logBox.innerHTML = `<div class="text-amber-400">[AI CO-PILOT] Initializing deep multi-index correlation for indicator type: <strong>${type.toUpperCase()}</strong>...</div>`;
+
+            let steps = [];
+
+            if (type === 'ip') {
+                steps = [
+                    { delay: 400, text: "[INDEX: firewall-*] Found 142 outbound connection packets to 185.220.101.5 over port 443 (HTTPS Tunnel)." },
+                    { delay: 900, text: "[INDEX: proxy-logs] Correlated HTTP POST requests containing encrypted payload blobs (Average chunk size: 4KB)." },
+                    { delay: 1400, text: "[INDEX: win-security-*] Matched Event ID 4688 (Process Creation): powershell.exe invoked with encoded command line." },
+                    { delay: 1900, text: "[AI SYNTHESIS] Threat confidence: 98% (Command and Control beaconing identified). MITRE ATT&CK: T1071.001." }
+                ];
+            } else if (type === 'user') {
+                steps = [
+                    { delay: 400, text: "[INDEX: win-security-*] Account j.doe@corp logged in successfully from workstation WS-FINANCE-04." },
+                    { delay: 900, text: "[INDEX: active-directory] Detected 4,500 LDAP queries in 30 seconds (Active Directory Enumeration / BloodHound signature)." },
+                    { delay: 1400, text: "[INDEX: cloudtrail-*] Concurrent login observed from foreign IP region (ASN: Tor Exit Node) using valid credentials." },
+                    { delay: 1900, text: "[AI SYNTHESIS] Threat confidence: 95% (Compromised Credential & Lateral Reconnaissance). Action: Recommended Account Lockout." }
+                ];
+            } else if (type === 'hash') {
+                steps = [
+                    { delay: 400, text: "[INDEX: endpoint-edr] File hash 44f8...b12 detected in C:\\Users\\Public\\update.exe across 3 endpoints." },
+                    { delay: 900, text: "[INDEX: syslog-*] Syslog alert: Unsigned binary established persistence via Run Registry Key." },
+                    { delay: 1400, text: "[INDEX: netflow-*] Lateral SMB traffic detected spreading from infected host to domain controller." },
+                    { delay: 1900, text: "[AI SYNTHESIS] Threat confidence: 99% (Trojan / Ransomware Staging). Action: One-Click Host Isolation Available." }
+                ];
+            } else if (type === 'domain') {
+                steps = [
+                    { delay: 400, text: "[INDEX: dns-logs] 890 DNS TXT queries recorded targeting resolving domain update-service.tk." },
+                    { delay: 900, text: "[INDEX: firewall-*] High entropy DNS tunneling traffic pattern validated over UDP port 53." },
+                    { delay: 1400, text: "[INDEX: cloudtrail-*] Associated AWS IAM role queried S3 bucket metadata immediately following DNS resolution." },
+                    { delay: 1900, text: "[AI SYNTHESIS] Threat confidence: 92% (DNS Exfiltration). Recommended Playbook: Block Domain & Revoke IAM Token." }
+                ];
+            }
+
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = "text-slate-300";
+                    div.innerHTML = `<span class="text-slate-500">[${new Date().toISOString().split('T')[1].slice(0,8)}]</span> ${step.text}`;
+                
